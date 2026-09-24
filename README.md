@@ -35,7 +35,7 @@ the bottom of the screen on phones.
    show 7:00 PM. Make sure every listing matches.
 4. **Confirm the business name on listings.** Yelp lists the shop as "Hugo's Alignment & Tire Shop". For local SEO,
    keep the name, address and phone identical everywhere (Google Business Profile, Yelp, Facebook, Apple Maps).
-5. **Add real photos and video** (see below). Illustrations stand in until then.
+5. **More photos and video.** Four real photos of the shop's work (from the owner's Yelp posts) are in the gallery and service pages. Add more, plus a hero video if the owner has one (see below).
 6. **Add genuine reviews** (see below), or leave the section as-is: it links out to Yelp.
 7. **Logo file.** The logo in `assets/img/logo-*.png` was cut out of a phone screenshot of the owner's
    artwork (`src/logo-source.png`, 576px). It holds up at header and hero sizes. If the owner has the original
@@ -74,10 +74,11 @@ including the `AutoRepair` structured data.
 
 ### Adding real shop photos
 
-The **Local shop. Real people. Real work.** gallery (in `src/pages/index.html`) has eight labelled frames:
-exterior, service bays, technicians, alignment equipment, vehicles in service, tires, tools, customer area.
-Instructions for replacing each one with a responsive `<picture>` (AVIF/WebP + JPEG, `width`/`height`,
-`loading="lazy"`) are in the HTML comment above the gallery. Use only authentic photos of Hugo's.
+The **Local shop. Real people. Real work.** gallery (in `src/pages/index.html`) shows four photos the owner posted
+to Yelp, captioned with the owner's own post titles. They're stored in `assets/img/shop/` at 480/800/1180px as
+JPEG + WebP. The Tires, Wheel Alignment and Auto Repair pages each lead with the matching photo. To add more, export the same
+sizes and copy a `<figure>` in the gallery. Good next shots: the shop exterior, the alignment rack, and the team.
+Use only authentic photos of Hugo's.
 
 Export tip: 1600px and 800px wide versions, AVIF quality ~50 and WebP quality ~75
 (e.g. `npx @squoosh/cli` or `sharp`).

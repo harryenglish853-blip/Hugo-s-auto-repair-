@@ -370,11 +370,14 @@ main:focus { outline: none; }
 @media (min-width: 760px) { .gallery { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 14px; } }
 .shot { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); background: var(--gunmetal); border: 1px solid var(--line); }
 .shot--wide { grid-column: span 2; }
+.shot--feature { grid-column: span 2; grid-row: span 2; }
 .shot--tall { grid-row: span 2; }
 .shot picture, .shot img { width: 100%; height: 100%; object-fit: cover; }
+.shot img { transition: transform 1.2s var(--ease); }
+.shot:hover img { transform: scale(1.04); }
 .shot figcaption {
-  position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 14px 12px;
-  background: linear-gradient(transparent, rgba(10,10,14,.85));
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 14px 12px;
+  background: linear-gradient(transparent, rgba(10,10,14,.9));
   font: italic 800 1rem/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase;
 }
 .shot--placeholder {
@@ -476,6 +479,8 @@ a.location__line:hover span { text-decoration: underline; }
 @media (max-width: 519px) { .page-hero__ctas .btn--primary, .page-hero__ctas .btn--ghost { width: 100%; } }
 .page-hero__art { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .page-hero__art img { width: 100%; }
+.page-hero__art--photo { aspect-ratio: 4 / 3; }
+.page-hero__art--photo picture, .page-hero__art--photo img { width: 100%; height: 100%; object-fit: cover; }
 .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 20px; padding: 0; font-size: .875rem; color: var(--muted); }
 .breadcrumb li + li::before { content: "/"; margin-right: 6px; color: var(--line-strong); }
 .breadcrumb a { color: var(--steel-lt); }
@@ -568,4 +573,7 @@ a.location__line:hover span { text-decoration: underline; }
 @media (max-width: 519px) {
   .hero__eyebrow { letter-spacing: .08em; font-size: .75rem; }
   .action-bar__btn { font-size: 1.0625rem; gap: 8px; }
+}
+@media (max-width: 759px) {
+  .shot figcaption { font-size: .8125rem; line-height: 1.15; padding: 28px 10px 10px; overflow-wrap: anywhere; }
 }

@@ -1,0 +1,41 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="container site-header__inner">
+    <!-- Official shop logo (cut out from the owner-supplied artwork; see README to swap in a high-res original) -->
+    <a class="brand" href="{{ROOT}}">
+      <img src="{{ROOT}}assets/img/logo-200.png" srcset="{{ROOT}}assets/img/logo-200.png 200w, {{ROOT}}assets/img/logo-400.png 400w" sizes="80px"
+        width="200" height="210" alt="Hugo's Alignment, Tires &amp; Auto Repair — home">
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="{{ROOT}}#services"{{NAV_services}}>Services</a></li>
+        <li><a href="{{ROOT}}wheel-alignment/"{{NAV_alignment}}>Alignment</a></li>
+        <li><a href="{{ROOT}}tires/"{{NAV_tires}}>Tires</a></li>
+        <li><a href="{{ROOT}}auto-repair/"{{NAV_repair}}>Auto Repair</a></li>
+        <li><a href="{{ROOT}}transmission-repair/"{{NAV_transmission}}>Transmission</a></li>
+        <li><a href="{{ROOT}}#reviews">Reviews</a></li>
+        <li><a href="{{ROOT}}#contact">Contact</a></li>
+      </ul>
+      <div class="site-nav__mobile-cta">
+        <a class="btn btn--primary btn--block" href="{{TEL}}" data-cta="call-menu">Call {{PHONE}}</a>
+        <a class="btn btn--ghost btn--block" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Get Directions</a>
+        <p class="site-nav__hours">Mon–Sat · {{OPEN}}–{{CLOSE}}</p>
+      </div>
+    </nav>
+
+    <a class="lang-switch" href="{{ALT_HREF}}" hreflang="es" lang="es" data-lang-switch>
+      <span aria-hidden="true">ES</span><span class="lang-switch__long">Español</span>
+    </a>
+
+    <a class="btn btn--primary btn--sm site-header__call" href="{{TEL}}" data-cta="call-header">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+      <span>{{PHONE}}</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+      <span class="menu-toggle__bars" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+  </div>
+</header>

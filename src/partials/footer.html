@@ -1,0 +1,73 @@
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <a class="brand brand--footer" href="{{ROOT}}">
+        <img src="{{ROOT}}assets/img/logo-200.png" srcset="{{ROOT}}assets/img/logo-200.png 200w, {{ROOT}}assets/img/logo-400.png 400w" sizes="152px"
+          width="200" height="210" alt="Hugo's Alignment, Tires &amp; Auto Repair" loading="lazy" decoding="async">
+      </a>
+      <p class="site-footer__about">10+ years in business, specializing in automotive services with professional, customized service for every client.</p>
+      <address class="nap">
+        <a href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">6040 N Black Canyon Hwy<br>Phoenix, AZ 85017</a>
+        <a class="nap__phone" href="{{TEL}}" data-cta="call-footer">{{PHONE}}</a>
+      </address>
+      <ul class="site-footer__social" aria-label="Follow Hugo's">
+        <li><a href="https://www.facebook.com/100090052066585/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/hugosalignment_/" target="_blank" rel="noopener">Instagram @hugosalignment_</a></li>
+      </ul>
+      <p class="site-footer__hours">Monday – Saturday<br>{{OPEN}} – {{CLOSE}}</p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer">
+      <h2 class="site-footer__heading">Navigate</h2>
+      <ul>
+        <li><a href="{{ROOT}}">Home</a></li>
+        <li><a href="{{ROOT}}#services">Services</a></li>
+        <li><a href="{{ROOT}}tires/">Tires</a></li>
+        <li><a href="{{ROOT}}wheel-alignment/">Alignment</a></li>
+        <li><a href="{{ROOT}}auto-repair/">Auto Repair</a></li>
+        <li><a href="{{ROOT}}transmission-repair/">Transmission Repair</a></li>
+        <li><a href="{{ROOT}}#reviews">Reviews</a></li>
+        <li><a href="{{ROOT}}#contact">Contact</a></li>
+        <li><a href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Directions</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-footer__cta">
+      <h2 class="site-footer__heading">Need a hand?</h2>
+      <a class="btn btn--primary btn--block" href="{{TEL}}" data-cta="call-footer-btn">Call Hugo's</a>
+      <a class="btn btn--ghost btn--block" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Get Directions</a>
+      <a class="btn btn--ghost btn--block" href="{{ROOT}}#request">Request Service</a>
+    </div>
+  </div>
+  <div class="container site-footer__legal">
+    <p>&copy; <span data-year>2026</span> Hugo's Alignment, Tires &amp; Auto Repair. Phoenix, Arizona.</p>
+    <ul>
+      <li><a href="{{ROOT}}privacy/">Privacy Policy</a></li>
+      <li><a href="{{ROOT}}terms/">Terms of Use</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Persistent thumb-reach action bar (mobile only) -->
+<nav class="action-bar" aria-label="Quick actions">
+  <a class="action-bar__btn action-bar__btn--call" href="{{TEL}}" data-cta="call-bar">
+    <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+    Call Now
+  </a>
+  <a class="action-bar__btn" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">
+    <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-pin"/></svg>
+    Directions
+  </a>
+</nav>
+
+<svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M4 7h3l2-2.5h6L17 7h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="12.5" r="3.8" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M14.5 9.2c-.5-.8-1.4-1.2-2.5-1.2-1.5 0-2.5.8-2.5 2s1 1.6 2.5 2 2.5.9 2.5 2-1 2-2.5 2c-1.2 0-2.1-.5-2.6-1.3M12 6.5V8m0 8v1.5"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 2.8l1.6 2.4 2.8-.6.6 2.8 2.4 1.6-1.2 2.6 1.2 2.6-2.4 1.6-.6 2.8-2.8-.6-1.6 2.4-1.6-2.4-2.8.6-.6-2.8-2.4-1.6L5.6 12 4.4 9.4l2.4-1.6.6-2.8 2.8.6z"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+</svg>

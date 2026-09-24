@@ -1,0 +1,439 @@
+<!--META {"path": "/", "alt": "/es/", "title": "Hugo's Alignment, Tires & Auto Repair | Phoenix, AZ", "description": "Hugo's Alignment, Tires & Auto Repair serves Phoenix drivers with tires, wheel alignment and automotive repair. Call (602) 242-0442.", "nav": "home", "schema": ["business", "website"], "changefreq": "monthly", "priority": "1.0"} -->
+
+<!-- ============================== HERO ============================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__media" data-hero-media>
+    {{include:hero-scene.svg}}
+    <!-- Real shop footage is injected here by main.js when HUGOS_CONFIG.heroVideo is set. -->
+  </div>
+  <div class="container hero__content">
+    <img class="hero__logo" src="{{ROOT}}assets/img/logo-400.png" srcset="{{ROOT}}assets/img/logo-200.png 200w, {{ROOT}}assets/img/logo-400.png 400w, {{ROOT}}assets/img/logo-full.png 438w"
+      sizes="(min-width: 1240px) 210px, (min-width: 777px) 17vw, 132px" width="400" height="420" alt="Hugo's Alignment, Tires &amp; Auto Repair logo" fetchpriority="high">
+    <p class="eyebrow hero__eyebrow"><span class="dot" aria-hidden="true"></span> Phoenix, Arizona · Mon–Sat {{OPEN_S}}–{{CLOSE_S}}</p>
+    <h1 class="hero__title" id="hero-title">
+      <span class="hero__brand">Hugo's Alignment, Tires &amp; Auto Repair</span>
+      <span class="hero__headline">Keep Phoenix <br><span class="hl">moving straight.</span></span>
+    </h1>
+    <p class="hero__lede">Tires, alignment and automotive repair from a local Phoenix shop focused on keeping your vehicle safe and dependable.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-hero">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+        Call {{PHONE}}
+      </a>
+      <a class="btn btn--ghost btn--lg" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><use href="#i-pin"/></svg>
+        Get Directions
+      </a>
+      <a class="btn btn--text" href="#request">Request Service <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#services" aria-label="Scroll to services"><span aria-hidden="true"></span></a>
+</section>
+
+<!-- ============================== TRUST STRIP ============================== -->
+<section class="trust" aria-label="About the shop at a glance">
+  <ul class="container trust__list">
+    <li class="trust__item reveal"><strong>10+ Years</strong><span>In business</span></li>
+    <li class="trust__item reveal"><strong>Phoenix, AZ</strong><span>6040 N Black Canyon Hwy</span></li>
+    <li class="trust__item reveal"><strong>Tires • Alignment</strong><span>&amp; auto repair</span></li>
+    <li class="trust__item reveal"><strong>Mon–Sat</strong><span>{{OPEN}} – {{CLOSE}}</span></li>
+  </ul>
+</section>
+
+<!-- ============================== SERVICES ============================== -->
+<section class="section services" id="services" aria-labelledby="services-title">
+  <div class="container">
+    <header class="section-head section-head--split reveal">
+      <div>
+        <p class="eyebrow">Services</p>
+        <h2 class="section-title" id="services-title">One shop.<br><span class="hl">More ways to keep you moving.</span></h2>
+      </div>
+      <ul class="values" aria-label="What Hugo's stands for">
+        <li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-shield"/></svg>Quality work</li>
+        <li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-tag"/></svg>Honest prices</li>
+        <li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-gear"/></svg>Keeping you on the road</li>
+      </ul>
+    </header>
+
+    <div class="services__grid">
+      <article class="service-card reveal">
+        <div class="service-card__media">{{photo:level-kit-tires-silverado|Blue Chevrolet Silverado with new all-terrain tires at Hugo's|(min-width: 760px) 50vw, 100vw}}</div>
+        <div class="service-card__body">
+          <p class="service-card__num">01</p>
+          <h3 class="service-card__title"><a href="{{ROOT}}tires/">Tires</a></h3>
+          <p>New tires in all brands and sizes, custom wheel and tire packages, and lift, leveling and drop kits.</p>
+          <a class="btn btn--line" href="{{TEL}}" data-cta="call-tires-card">Call About Tires</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-card__media">{{photo:alignment-4runner|White Toyota 4Runner at Hugo's after an alignment|(min-width: 760px) 50vw, 100vw}}</div>
+        <div class="service-card__body">
+          <p class="service-card__num">02</p>
+          <h3 class="service-card__title"><a href="{{ROOT}}wheel-alignment/">Wheel Alignment</a></h3>
+          <p>Poor alignment can contribute to uneven tire wear, steering issues and a vehicle pulling away from a straight line.</p>
+          <a class="btn btn--line" href="{{ROOT}}wheel-alignment/">Alignment Service</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-card__media">{{photo:control-arms-accord|Blue Honda Accord on a lift in Hugo's service bay|(min-width: 760px) 50vw, 100vw}}</div>
+        <div class="service-card__body">
+          <p class="service-card__num">03</p>
+          <h3 class="service-card__title"><a href="{{ROOT}}auto-repair/">Auto Repair</a></h3>
+          <p>Engine repair and diagnostics, brakes and rotors, suspension, electrical, A/C, oil changes and more. Hugo's helps Phoenix drivers get back on the road.</p>
+          <a class="btn btn--line" href="{{TEL}}" data-cta="call-repair-card">Call About Your Vehicle</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-card__media">{{photo:engine-jeep|White Jeep with the hood open during engine and transmission work at Hugo's|(min-width: 760px) 50vw, 100vw}}</div>
+        <div class="service-card__body">
+          <p class="service-card__num">04</p>
+          <h3 class="service-card__title"><a href="{{ROOT}}transmission-repair/">Transmission Repair</a></h3>
+          <p>Slipping, rough shifting or delayed engagement? Call Hugo's to talk through what your transmission is doing and set up a time to bring it in.</p>
+          <a class="btn btn--line" href="{{ROOT}}transmission-repair/">Transmission Service</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="all-services reveal">
+      <h3 class="all-services__title">We do all this <span class="hl">and more</span></h3>
+      <ul class="all-services__list">
+        <li>Alignments</li>
+        <li>New tires: all brands &amp; sizes</li>
+        <li>Custom wheels &amp; tires</li>
+        <li>Lift kits · leveling kits · drop kits</li>
+        <li>Suspension work</li>
+        <li>Brakes &amp; rotors</li>
+        <li>Oil changes &amp; maintenance</li>
+        <li>Engine repair &amp; diagnostics</li>
+        <li>Transmission repair</li>
+        <li>Electrical repair</li>
+        <li>A/C repair</li>
+        <li>Steering &amp; more</li>
+        <li>Welding &amp; fabrication</li>
+      </ul>
+    </div>
+
+    <aside class="financing reveal" aria-labelledby="financing-title">
+      <div>
+        <p class="eyebrow">Financing</p>
+        <h3 class="financing__title" id="financing-title">Financing <span class="hl">available</span></h3>
+        <p class="financing__lede">Quick approval. Easy payments.</p>
+        <ul class="financing__partners" aria-label="Financing providers">
+          <li>Snap Finance</li><li>Koalafi</li><li>EasyPay Finance</li>
+        </ul>
+        <p class="financing__note">Financing is offered through third-party providers and is subject to their approval. Ask Hugo's for details.</p>
+      </div>
+      <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-financing">Ask About Financing</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================== PROBLEM → SOLUTION ============================== -->
+<section class="section section--alt problems" id="symptoms" aria-labelledby="problems-title">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Tell us what's happening</p>
+      <h2 class="section-title" id="problems-title">What is your car doing?</h2>
+      <p class="section-lede">Pick what you're noticing. We won't guess at a diagnosis online. The next step is to have Hugo's take a look.</p>
+    </header>
+
+    <div class="problems__grid" role="group" aria-label="Common vehicle symptoms" data-problems>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Car pulling left or right">Car pulling left or right</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Steering wheel off-center">Steering wheel off-center</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Uneven tire wear">Uneven tire wear</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Shaking or vibration">Shaking or vibration</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Tire problem" data-service="Tires">Tire problem</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Warning light">Warning light</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Unusual noise">Unusual noise</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Not sure what's wrong">Not sure what's wrong</button>
+    </div>
+
+    <div class="problems__answer" id="problem-answer" aria-live="polite" data-problem-answer hidden>
+      <p class="problems__selected">You selected: <strong data-problem-label></strong></p>
+      <p class="problems__headline">Let's take a look.</p>
+      <div class="problems__ctas">
+        <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-symptom">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+          Call Hugo's {{PHONE}}
+        </a>
+        <a class="btn btn--text" href="#request" data-problem-request>Or send a service request <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ALIGNMENT FEATURE ============================== -->
+<section class="section alignment" id="alignment" aria-labelledby="alignment-title">
+  <div class="container alignment__layout">
+    <div class="alignment__copy">
+      <p class="eyebrow reveal">Wheel alignment</p>
+      <h2 class="section-title reveal" id="alignment-title">Straight road.<br><span class="hl">Straight steering.</span></h2>
+      <p class="reveal">Alignment is the angle of your wheels relative to each other and to the road. Curbs, potholes and normal wear can shift it over time, which can show up in how the vehicle drives and how the tires wear.</p>
+      <h3 class="alignment__subhead reveal">Signs an alignment inspection may be a good idea</h3>
+      <ul class="check-list reveal">
+        <li>The vehicle drifts or pulls to one side on a straight, level road</li>
+        <li>The steering wheel sits off-center while driving straight</li>
+        <li>Tires are wearing faster on one edge than the other</li>
+        <li>You recently hit a curb, pothole or road debris</li>
+        <li>You've had new tires or steering or suspension parts installed</li>
+      </ul>
+      <a class="btn btn--primary reveal" href="{{TEL}}" data-cta="call-alignment">Ask About Alignment</a>
+    </div>
+
+    <figure class="alignment__viz" data-align-viz style="--p:0">
+      <div class="alignment__status" aria-hidden="true">
+        <span class="alignment__state alignment__state--off">Misaligned</span>
+        <span class="alignment__arrow">→</span>
+        <span class="alignment__state alignment__state--on">Aligned</span>
+      </div>
+      <svg class="align-svg" viewBox="0 0 600 560" role="img" aria-labelledby="align-svg-title">
+        <title id="align-svg-title">Top-down illustration of a vehicle's front wheels moving from a toed-out position to straight</title>
+        <defs>
+          <pattern id="align-grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#1a1c1f"/></pattern>
+        </defs>
+        <rect width="600" height="560" fill="url(#align-grid)"/>
+        <line x1="300" y1="10" x2="300" y2="550" class="align-svg__center"/>
+        <!-- body -->
+        <path d="M170 540 L170 190 Q170 60 300 48 Q430 60 430 190 L430 540" class="align-svg__body"/>
+        <path d="M200 360 Q300 330 400 360 L392 450 Q300 430 208 450 Z" class="align-svg__glass"/>
+        <line x1="150" y1="230" x2="450" y2="230" class="align-svg__axle"/>
+        <!-- wheels -->
+        <g class="align-svg__wheel align-svg__wheel--l">
+          <line x1="118" y1="40" x2="118" y2="440" class="align-svg__beam"/>
+          <rect x="94" y="160" width="48" height="140" rx="12" class="align-svg__tire"/>
+        </g>
+        <g class="align-svg__wheel align-svg__wheel--r">
+          <line x1="482" y1="40" x2="482" y2="440" class="align-svg__beam"/>
+          <rect x="458" y="160" width="48" height="140" rx="12" class="align-svg__tire"/>
+        </g>
+        <!-- steering wheel -->
+        <g class="align-svg__steer" transform="translate(300 480)">
+          <g class="align-svg__steer-rot">
+            <circle r="38" class="align-svg__steer-rim"/>
+            <path d="M-38 0 H-12 M12 0 H38 M0 12 V38" class="align-svg__steer-spoke"/>
+            <circle r="12" class="align-svg__steer-hub"/>
+            <rect x="-3" y="-44" width="6" height="12" rx="2" class="align-svg__steer-mark"/>
+          </g>
+        </g>
+      </svg>
+      <figcaption class="alignment__caption">
+        <span>Illustration only. It doesn't show or diagnose your vehicle.</span>
+        <span class="alignment__toggle" role="group" aria-label="Alignment illustration state">
+          <button type="button" class="chip" data-align-set="0" aria-pressed="false">Misaligned</button>
+          <button type="button" class="chip" data-align-set="1" aria-pressed="false">Aligned</button>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================== TIRES ============================== -->
+<section class="section section--alt tires" id="tires" aria-labelledby="tires-title">
+  <div class="container">
+    <header class="section-head section-head--split reveal">
+      <div>
+        <p class="eyebrow">Tires</p>
+        <h2 class="section-title" id="tires-title">Your connection<br><span class="hl">to the road.</span></h2>
+      </div>
+      <div>
+        <p class="section-lede">Every stop, turn and lane change depends on four contact patches about the size of your hand. Tread depth, sidewall condition, balance and properly torqued lug nuts all play a part in how safely your vehicle handles.</p>
+        <a class="btn btn--primary" href="{{TEL}}" data-cta="call-tires">Call About Tires</a>
+      </div>
+    </header>
+  </div>
+  <!-- Replace these illustrations with real macro photos/clips from the shop when available. -->
+  <ol class="tire-reel" aria-label="Tire detail sequence" tabindex="0">
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-tread.svg" alt="Illustration of a tread depth gauge measuring a tire groove" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>01</span> Tread</figcaption></figure></li>
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-sidewall.svg" alt="Illustration of a tire sidewall meeting the wheel rim" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>02</span> Sidewall</figcaption></figure></li>
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-wheel.svg" alt="Illustration of a wheel and tire" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>03</span> Wheel</figcaption></figure></li>
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-lugs.svg" alt="Illustration of five lug nuts with a star-pattern tightening sequence" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>04</span> Lug nuts</figcaption></figure></li>
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-balance.svg" alt="Illustration of a wheel mounted on a tire balancing machine" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>05</span> Balancing</figcaption></figure></li>
+  </ol>
+</section>
+
+<!-- ============================== REAL SHOP ============================== -->
+<section class="section shop" id="shop" aria-labelledby="shop-title">
+  <div class="container">
+    <header class="section-head section-head--split reveal">
+      <div>
+        <p class="eyebrow">The shop</p>
+        <h2 class="section-title" id="shop-title">Local shop.<br>Real people.<br><span class="hl">Real work.</span></h2>
+      </div>
+      <div>
+        <p class="section-lede">Hugo's Alignment, Tires &amp; Auto Repair has served drivers for more than a decade with a focus on quality automotive service and vehicle safety.</p>
+        <blockquote class="owner-quote">
+          <p>“Our goal is to provide our clients quality service for their vehicles, so everyone stays safe. We specialize in automotive services and give every client professional, customized service.”</p>
+          <footer>Hugo's, from the shop's Yelp page</footer>
+        </blockquote>
+      </div>
+    </header>
+
+    <!--
+      SHOP PHOTO GALLERY: real work posted by Hugo's (captions are the owner's own post titles).
+      Add more by exporting 480/800/1180px JPEG + WebP to assets/img/shop/ and copying a <figure> below.
+      Only use authentic photos of Hugo's work. Never stock photos of other shops.
+    -->
+    <div class="gallery">
+      <figure class="shot shot--feature">{{photo:control-arms-accord|Blue Honda Accord on a two-post lift in one of Hugo's service bays, technicians working in the background|(min-width: 760px) 50vw, 100vw}}<figcaption>Front lower control arms &amp; rotors replaced</figcaption></figure>
+      <figure class="shot shot--tall">{{photo:level-kit-silverado|Gray Chevrolet Silverado single cab with a level kit and off-road tires, from a Hugo's social post with the shop logo|(min-width: 760px) 25vw, 50vw}}<figcaption>Level kit installation</figcaption></figure>
+      <figure class="shot shot--tall">{{photo:engine-jeep|White Jeep with the hood open in Hugo's service bay while a technician works on the engine|(min-width: 760px) 25vw, 50vw}}<figcaption>A/C service, transmission service &amp; motor replacement</figcaption></figure>
+      <figure class="shot shot--wide">{{photo:level-kit-tires-silverado|Blue Chevrolet Silverado crew cab after a level kit and new all-terrain tires, parked at Hugo's|(min-width: 760px) 50vw, 100vw}}<figcaption>Transformation: level kit &amp; new tires</figcaption></figure>
+      <figure class="shot shot--wide">{{photo:alignment-4runner|White Toyota 4Runner at Hugo's after an alignment, with other customer vehicles in the lot|(min-width: 760px) 50vw, 100vw}}<figcaption>Alignments</figcaption></figure>
+    </div>
+    <p class="shop__visit reveal">Recent work from the shop. The best way to see it is in person: <a href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">6040 N Black Canyon Hwy, Phoenix</a>.</p>
+  </div>
+</section>
+
+<!-- ============================== REVIEWS ============================== -->
+<section class="section section--alt reviews" id="reviews" aria-labelledby="reviews-title">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Reviews</p>
+      <h2 class="section-title" id="reviews-title">What Phoenix drivers say</h2>
+    </header>
+    <!-- Rendered by main.js from HUGOS_CONFIG.reviews. Only genuine, verbatim reviews
+         the business is permitted to display belong there. -->
+    <div class="reviews__list" data-reviews>
+      <p class="reviews__empty">We only share genuine reviews from real customers. See what drivers are saying about Hugo's on independent review sites.</p>
+    </div>
+    <div class="reviews__more">
+      <a class="btn btn--ghost" href="https://www.yelp.com/biz/hugo-s-alignment-and-tire-shop-phoenix-5" target="_blank" rel="noopener" data-reviews-link>Read More Reviews <span class="visually-hidden">(opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== LOCATION ============================== -->
+<section class="section location" id="contact" aria-labelledby="location-title">
+  <div class="container location__layout">
+    <div class="location__info reveal">
+      <p class="eyebrow">Visit or call</p>
+      <h2 class="section-title" id="location-title">Your Phoenix<br><span class="hl">auto shop.</span></h2>
+      <p class="location__name">Hugo's Alignment, Tires &amp; Auto Repair</p>
+      <address class="location__nap">
+        <a class="location__line" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-pin"/></svg>
+          <span>6040 N Black Canyon Hwy<br>Phoenix, AZ 85017</span>
+        </a>
+        <a class="location__line" href="{{TEL}}" data-cta="call-location">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+          <span>{{PHONE}}</span>
+        </a>
+        <p class="location__line">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-clock"/></svg>
+          <span>Monday – Saturday<br>{{OPEN}} – {{CLOSE}}</span>
+        </p>
+      </address>
+      <p class="location__open" data-open-status data-open="{{OPEN_24}}" data-close="{{CLOSE_24}}" data-open-label="{{OPEN}}" data-close-label="{{CLOSE}}" aria-live="polite"></p>
+      <div class="location__ctas">
+        <a class="btn btn--primary btn--lg" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn btn--ghost btn--lg" href="{{TEL}}" data-cta="call-location-btn">Call Now</a>
+      </div>
+    </div>
+    <div class="location__map reveal">
+      <a class="location__map-fallback" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">
+        <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24"><use href="#i-pin"/></svg>
+        Open map to 6040 N Black Canyon Hwy
+      </a>
+      <iframe title="Map showing Hugo's Alignment, Tires &amp; Auto Repair at 6040 N Black Canyon Hwy, Phoenix, AZ 85017"
+        src="https://www.google.com/maps?q=6040+N+Black+Canyon+Hwy,+Phoenix,+AZ+85017&amp;z=15&amp;output=embed"
+        width="600" height="480" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SERVICE INQUIRY ============================== -->
+<section class="section section--alt request" id="request" aria-labelledby="request-title">
+  <div class="container request__layout">
+    <header class="request__head reveal">
+      <p class="eyebrow">Request service</p>
+      <h2 class="section-title" id="request-title">What does your<br><span class="hl">vehicle need?</span></h2>
+      <p>Tell Hugo's what your vehicle needs. Calling is the fastest way to reach the shop.</p>
+      <a class="btn btn--line" href="{{TEL}}" data-cta="call-request">Call {{PHONE}}</a>
+    </header>
+
+    <!-- Shown instead of the form until HUGOS_CONFIG.formEndpoint is set in assets/js/site-config.js -->
+    <div class="request-offline" data-request-offline hidden>
+      <h3 class="request-offline__title">Call or stop by</h3>
+      <p>Online service requests are coming soon. For now, the fastest way to get your vehicle looked at is to call the shop or come by during business hours.</p>
+      <div class="request-offline__ctas">
+        <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-request-offline">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+          Call {{PHONE}}
+        </a>
+        <a class="btn btn--ghost btn--lg" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Get Directions</a>
+      </div>
+      <p class="request-offline__hours">Monday – Saturday · {{OPEN}} – {{CLOSE}} · 6040 N Black Canyon Hwy, Phoenix</p>
+    </div>
+
+    <form class="request-form" data-request-form novalidate>
+      <noscript><p class="form-status form-status--error">Online requests need JavaScript. Please call <a href="{{TEL}}">{{PHONE}}</a>.</p></noscript>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9()+\-.\s]{10,}">
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-email">Email <span class="optional">(optional)</span></label>
+        <input id="f-email" name="email" type="email" autocomplete="email">
+      </div>
+      <fieldset class="field-row field-row--3">
+        <legend>Vehicle</legend>
+        <div class="field">
+          <label for="f-year">Year</label>
+          <input id="f-year" name="vehicle_year" type="text" inputmode="numeric" maxlength="4" pattern="(19|20)[0-9]{2}" placeholder="e.g. 2014">
+        </div>
+        <div class="field">
+          <label for="f-make">Make</label>
+          <input id="f-make" name="vehicle_make" type="text" placeholder="e.g. Toyota">
+        </div>
+        <div class="field">
+          <label for="f-model">Model</label>
+          <input id="f-model" name="vehicle_model" type="text" placeholder="e.g. Camry">
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="f-service">Service needed <span class="req" aria-hidden="true">*</span></label>
+        <select id="f-service" name="service" required>
+          <option value="">Choose one</option>
+          <option>Tires</option>
+          <option>Alignment</option>
+          <option value="Custom wheels &amp; tires">Custom wheels &amp; tires</option>
+          <option value="Lift / leveling / drop kit">Lift / leveling / drop kit</option>
+          <option value="Suspension or steering">Suspension or steering</option>
+          <option value="Brakes &amp; rotors">Brakes &amp; rotors</option>
+          <option value="Oil change &amp; maintenance">Oil change &amp; maintenance</option>
+          <option value="Engine repair &amp; diagnostics">Engine repair &amp; diagnostics</option>
+          <option>Transmission</option>
+          <option value="Electrical">Electrical</option>
+          <option value="A/C">A/C</option>
+          <option value="Welding &amp; fabrication">Welding &amp; fabrication</option>
+          <option value="Financing question">Financing question</option>
+          <option>Not Sure</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-message">Message</label>
+        <textarea id="f-message" name="message" rows="4" placeholder="What are you noticing? When did it start?"></textarea>
+      </div>
+      <input type="hidden" name="language" value="English">
+      <!-- spam trap: real visitors never see or fill this -->
+      <div class="hp" aria-hidden="true">
+        <label for="f-company">Company</label>
+        <input id="f-company" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <p class="form-note"><span class="req" aria-hidden="true">*</span> Required. See our <a href="{{ROOT}}privacy/">Privacy Policy</a>.</p>
+      <button class="btn btn--primary btn--lg btn--block" type="submit">Request Service</button>
+      <div class="form-status" role="status" aria-live="polite" data-form-status hidden></div>
+    </form>
+  </div>
+</section>
+
+{{include:final-cta.html}}

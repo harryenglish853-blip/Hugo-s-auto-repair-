@@ -79,7 +79,7 @@ def business_schema():
         "url": f"{SITE_URL}/",
         "telephone": b["phone_e164"],
         "image": f"{SITE_URL}/assets/img/og-image.png",
-        "logo": f"{SITE_URL}/assets/img/apple-touch-icon.png",
+        "logo": f"{SITE_URL}/assets/img/logo-576.png",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": b["street"],

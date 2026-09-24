@@ -27,8 +27,8 @@
     <stop offset="0" stop-color="#f4efe6" stop-opacity=".10"/><stop offset="1" stop-color="#f4efe6" stop-opacity="0"/>
   </radialGradient>
   <linearGradient id="hs-laser" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#f0a431" stop-opacity="0"/><stop offset=".5" stop-color="#f0a431" stop-opacity=".9"/>
-    <stop offset="1" stop-color="#f0a431" stop-opacity="0"/>
+    <stop offset="0" stop-color="#f9d10e" stop-opacity="0"/><stop offset=".5" stop-color="#f9d10e" stop-opacity=".9"/>
+    <stop offset="1" stop-color="#f9d10e" stop-opacity="0"/>
   </linearGradient>
   <linearGradient id="hs-shade" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="#0d0e10" stop-opacity=".96"/><stop offset=".48" stop-color="#0d0e10" stop-opacity=".7"/>
@@ -43,10 +43,10 @@
 </g>
 <!-- overhead shop lights -->
 <g class="hs-lights">
-  <rect x="340" y="40" width="300" height="10" rx="3" fill="#e9e4da"/>
-  <rect x="960" y="40" width="300" height="10" rx="3" fill="#e9e4da"/>
-  <path d="M340 50 L640 50 L760 420 L220 420 Z" fill="url(#hs-light)" opacity=".07"/>
-  <path d="M960 50 L1260 50 L1380 420 L840 420 Z" fill="url(#hs-light)" opacity=".07"/>
+  <rect x="340" y="150" width="300" height="10" rx="3" fill="#e9e4da" opacity=".85"/>
+  <rect x="960" y="150" width="300" height="10" rx="3" fill="#e9e4da" opacity=".85"/>
+  <path d="M340 160 L640 160 L760 480 L220 480 Z" fill="url(#hs-light)" opacity=".07"/>
+  <path d="M960 160 L1260 160 L1380 480 L840 480 Z" fill="url(#hs-light)" opacity=".07"/>
 </g>
 <!-- floor -->
 <rect y="585" width="1600" height="315" fill="url(#hs-floor)"/>
@@ -153,7 +153,7 @@
       <circle r="24" fill="#2b2e32" stroke="#c9ced4" stroke-width="4"/>
       <rect x="24" y="-16" width="276" height="16" rx="3" fill="#3b3f44" stroke="#8e969f" stroke-width="1.5"/>
       <rect x="268" y="-54" width="92" height="74" rx="8" fill="#1f2226" stroke="#c9ced4" stroke-width="3"/>
-      <circle class="hs-sensor-led" cx="340" cy="-34" r="5" fill="#f0a431"/>
+      <circle class="hs-sensor-led" cx="340" cy="-34" r="5" fill="#f9d10e"/>
       <rect x="290" y="-10" width="48" height="16" rx="3" fill="#0b0c0d" stroke="#555b62"/>
     </g>
   </g>

@@ -37,10 +37,27 @@ the bottom of the screen on phones.
    keep the name, address and phone identical everywhere (Google Business Profile, Yelp, Facebook, Apple Maps).
 5. **Add real photos and video** (see below). Illustrations stand in until then.
 6. **Add genuine reviews** (see below), or leave the section as-is: it links out to Yelp.
-7. **Logo.** The header uses a text wordmark. If the shop has an official logo file, swap it into
-   `src/partials/header.html` and `src/partials/footer.html` (keep the business name as the alt text), then rebuild.
+7. **Logo file.** The logo in `assets/img/logo-*.png` was cut out of a phone screenshot of the owner's
+   artwork (`src/logo-source.png`, 576px). It holds up at header and hero sizes. If the owner has the original
+   high-res file (PNG with transparency, SVG, or the designer's source), replace `src/logo-source.png` and re-export
+   `logo-200.png`, `logo-400.png` and `logo-576.png` at those widths. The logo reads "Hugo's Alignment and Tire Shop LLC".
+   The site keeps "Hugo's Alignment, Tires & Auto Repair" as the business name, as requested. Pick one name to use on every listing.
 8. Have the owner review `/privacy/` and `/terms/` (ideally with an attorney).
 9. After launch, submit `sitemap.xml` in Google Search Console and link the site from the Google Business Profile.
+
+## Brand
+
+Everything visual is taken from the shop's logo:
+
+| | Value | From the logo |
+| --- | --- | --- |
+| Yellow | `#F9D10E` (gradient `#FFEC7A → #F9D10E → #E9B50C`) | "HUGO'S" lettering, stars, shield stripe |
+| Chrome | `#F6F7F9 → #9C9EA4 → #74777E` gradient | shield, pistons, car |
+| Black | `#0A0A0E` + perforated-metal texture (pure CSS) | the logo's background plate |
+| Headings | **Saira ExtraBold Italic** (self-hosted) | heavy slanted "HUGO'S" lettering |
+| Labels & body | **Arimo** Regular/Bold (self-hosted, Arial-metric) | "ALIGNMENT AND TIRE SHOP LLC" line |
+
+The colour tokens live at the top of `assets/css/styles.css`. The illustration accent is `YELLOW` in `tools/generate_art.py`.
 
 ## Editing content
 

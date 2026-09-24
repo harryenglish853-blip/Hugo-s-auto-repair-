@@ -17,7 +17,7 @@ PARTIALS = ROOT / "src" / "partials"
 
 STEEL = "#8e969f"
 STEEL_LT = "#c9ced4"
-AMBER = "#f0a431"
+YELLOW = "#f9d10e"
 INK = "#0d0e10"
 
 
@@ -160,8 +160,8 @@ def hero_scene():
     <stop offset="0" stop-color="#f4efe6" stop-opacity=".10"/><stop offset="1" stop-color="#f4efe6" stop-opacity="0"/>
   </radialGradient>
   <linearGradient id="hs-laser" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="{AMBER}" stop-opacity="0"/><stop offset=".5" stop-color="{AMBER}" stop-opacity=".9"/>
-    <stop offset="1" stop-color="{AMBER}" stop-opacity="0"/>
+    <stop offset="0" stop-color="{YELLOW}" stop-opacity="0"/><stop offset=".5" stop-color="{YELLOW}" stop-opacity=".9"/>
+    <stop offset="1" stop-color="{YELLOW}" stop-opacity="0"/>
   </linearGradient>
   <linearGradient id="hs-shade" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="{INK}" stop-opacity=".96"/><stop offset=".48" stop-color="{INK}" stop-opacity=".7"/>
@@ -176,10 +176,10 @@ def hero_scene():
 </g>
 <!-- overhead shop lights -->
 <g class="hs-lights">
-  <rect x="340" y="40" width="300" height="10" rx="3" fill="#e9e4da"/>
-  <rect x="960" y="40" width="300" height="10" rx="3" fill="#e9e4da"/>
-  <path d="M340 50 L640 50 L760 420 L220 420 Z" fill="url(#hs-light)" opacity=".07"/>
-  <path d="M960 50 L1260 50 L1380 420 L840 420 Z" fill="url(#hs-light)" opacity=".07"/>
+  <rect x="340" y="150" width="300" height="10" rx="3" fill="#e9e4da" opacity=".85"/>
+  <rect x="960" y="150" width="300" height="10" rx="3" fill="#e9e4da" opacity=".85"/>
+  <path d="M340 160 L640 160 L760 480 L220 480 Z" fill="url(#hs-light)" opacity=".07"/>
+  <path d="M960 160 L1260 160 L1380 480 L840 480 Z" fill="url(#hs-light)" opacity=".07"/>
 </g>
 <!-- floor -->
 <rect y="585" width="{W}" height="{H - 585}" fill="url(#hs-floor)"/>
@@ -207,7 +207,7 @@ def hero_scene():
       <circle r="24" fill="#2b2e32" stroke="{STEEL_LT}" stroke-width="4"/>
       <rect x="24" y="-16" width="276" height="16" rx="3" fill="#3b3f44" stroke="#8e969f" stroke-width="1.5"/>
       <rect x="268" y="-54" width="92" height="74" rx="8" fill="#1f2226" stroke="{STEEL_LT}" stroke-width="3"/>
-      <circle class="hs-sensor-led" cx="340" cy="-34" r="5" fill="{AMBER}"/>
+      <circle class="hs-sensor-led" cx="340" cy="-34" r="5" fill="{YELLOW}"/>
       <rect x="290" y="-10" width="48" height="16" rx="3" fill="#0b0c0d" stroke="#555b62"/>
     </g>
   </g>
@@ -299,7 +299,7 @@ def alignment_card():
         parts.append(
             f'<circle cx="{x}" cy="230" r="82" fill="none" stroke="#2c3035" stroke-width="3"/>'
             f'<g class="ac-wheel ac-{side}"><rect x="{x - 26}" y="160" width="52" height="140" rx="12" fill="#1c1e21" stroke="{STEEL_LT}" stroke-width="3"/>'
-            f'<line x1="{x}" y1="40" x2="{x}" y2="420" stroke="{AMBER}" stroke-width="2.5" class="ac-beam"/></g>'
+            f'<line x1="{x}" y1="40" x2="{x}" y2="420" stroke="{YELLOW}" stroke-width="2.5" class="ac-beam"/></g>'
         )
     style = (
         ".ac-wheel{transform-box:fill-box;transform-origin:center}"
@@ -343,7 +343,7 @@ def repair_card():
         f'<circle cx="{f(lx)}" cy="{f(ly)}" r="22" fill="#5a6067" stroke="{STEEL_LT}" stroke-width="2"/>'
         f'<rect x="{f(lx)}" y="{f(ly - 11)}" width="250" height="22" rx="11" fill="#8a9199" stroke="{STEEL_LT}" stroke-width="2"/>'
         f'<rect x="{f(lx + 170)}" y="{f(ly - 15)}" width="100" height="30" rx="15" fill="#1c1e21" stroke="#5d636a" stroke-width="2"/>'
-        f'<line x1="{f(lx + 120)}" y1="{f(ly - 11)}" x2="{f(lx + 120)}" y2="{f(ly + 11)}" stroke="{AMBER}" stroke-width="3"/>'
+        f'<line x1="{f(lx + 120)}" y1="{f(ly - 11)}" x2="{f(lx + 120)}" y2="{f(ly + 11)}" stroke="{YELLOW}" stroke-width="3"/>'
         "</g>"
     )
     style = (
@@ -391,7 +391,7 @@ def transmission_card():
     parts.append(
         '<g class="tc-sun">'
         f'<path d="{gear_path(zs, rs, dep)}" fill="#3a3e43" stroke="{STEEL_LT}" stroke-width="2"/>'
-        f'<circle r="16" fill="#101113" stroke="{AMBER}" stroke-width="3"/>'
+        f'<circle r="16" fill="#101113" stroke="{YELLOW}" stroke-width="3"/>'
         "</g>"
     )
     parts.append("</g>")
@@ -443,7 +443,7 @@ def seq_lugs():
     pts = [polar(100, i * 72 - 90, 300, 200) for i in range(5)]
     order = [0, 2, 4, 1, 3]  # star pattern
     d = "M" + " L".join(f"{f(pts[i][0])} {f(pts[i][1])}" for i in order) + " Z"
-    parts.append(f'<path class="lg-star" d="{d}" fill="none" stroke="{AMBER}" stroke-width="2" stroke-dasharray="6 6"/>')
+    parts.append(f'<path class="lg-star" d="{d}" fill="none" stroke="{YELLOW}" stroke-width="2" stroke-dasharray="6 6"/>')
     for n, i in enumerate(order, 1):
         x, y = pts[i]
         parts.append(
@@ -471,7 +471,7 @@ def seq_balance():
         f'<rect x="450" y="176" width="40" height="48" rx="6" fill="#2b2e32" stroke="{STEEL_LT}" stroke-width="2"/>',
         f'<rect x="462" y="150" width="16" height="100" rx="6" fill="#3b3f44" stroke="{STEEL}" stroke-width="2"/>',
         # clip-on weight on rim flange
-        f'<rect class="bl-wt" x="398" y="104" width="10" height="26" rx="2" fill="{AMBER}"/>',
+        f'<rect class="bl-wt" x="398" y="104" width="10" height="26" rx="2" fill="{YELLOW}"/>',
     ]
     style = ".bl-wt{animation:bl 2.6s ease-in-out infinite}@keyframes bl{0%,100%{opacity:1}50%{opacity:.35}}"
     return frame("".join(parts), "Illustration of a wheel mounted on a tire balancing machine", style)
@@ -486,7 +486,7 @@ def seq_tread_depth():
     parts.append(
         f'<rect x="283" y="40" width="34" height="150" rx="4" fill="#3b3f44" stroke="{STEEL_LT}" stroke-width="2"/>'
         f'<rect class="td-pin" x="296" y="190" width="8" height="120" fill="{STEEL_LT}"/>'
-        f'<line x1="283" y1="120" x2="317" y2="120" stroke="{AMBER}" stroke-width="3"/>'
+        f'<line x1="283" y1="120" x2="317" y2="120" stroke="{YELLOW}" stroke-width="3"/>'
     )
     for k in range(6):
         parts.append(f'<line x1="283" y1="{60 + k * 20}" x2="295" y2="{60 + k * 20}" stroke="#101113" stroke-width="2"/>')

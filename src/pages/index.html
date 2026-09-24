@@ -7,10 +7,12 @@
     <!-- Real shop footage is injected here by main.js when HUGOS_CONFIG.heroVideo is set. -->
   </div>
   <div class="container hero__content">
+    <img class="hero__logo" src="{{ROOT}}assets/img/logo-400.png" srcset="{{ROOT}}assets/img/logo-200.png 200w, {{ROOT}}assets/img/logo-400.png 400w, {{ROOT}}assets/img/logo-576.png 576w"
+      sizes="(min-width: 1240px) 210px, (min-width: 777px) 17vw, 132px" width="400" height="393" alt="Hugo's Alignment and Tire Shop logo" fetchpriority="high">
     <p class="eyebrow hero__eyebrow"><span class="dot" aria-hidden="true"></span> Phoenix, Arizona · Mon–Sat 8AM–6PM</p>
     <h1 class="hero__title" id="hero-title">
       <span class="hero__brand">Hugo's Alignment, Tires &amp; Auto Repair</span>
-      <span class="hero__headline">Keep Phoenix <br>moving straight.</span>
+      <span class="hero__headline">Keep Phoenix <br><span class="hl">moving straight.</span></span>
     </h1>
     <p class="hero__lede">Tires, alignment and automotive repair from a local Phoenix shop focused on keeping your vehicle safe and dependable.</p>
     <div class="hero__ctas">
@@ -43,7 +45,7 @@
   <div class="container">
     <header class="section-head reveal">
       <p class="eyebrow">Services</p>
-      <h2 class="section-title" id="services-title">One shop.<br>More ways to keep you moving.</h2>
+      <h2 class="section-title" id="services-title">One shop.<br><span class="hl">More ways to keep you moving.</span></h2>
     </header>
 
     <div class="services__grid">
@@ -137,7 +139,7 @@
   <div class="container alignment__layout">
     <div class="alignment__copy">
       <p class="eyebrow reveal">Wheel alignment</p>
-      <h2 class="section-title reveal" id="alignment-title">Straight road.<br>Straight steering.</h2>
+      <h2 class="section-title reveal" id="alignment-title">Straight road.<br><span class="hl">Straight steering.</span></h2>
       <p class="reveal">Alignment is the angle of your wheels relative to each other and to the road. Curbs, potholes and normal wear can shift it over time, which can show up in how the vehicle drives and how the tires wear.</p>
       <h3 class="alignment__subhead reveal">Signs an alignment inspection may be a good idea</h3>
       <ul class="check-list reveal">
@@ -203,7 +205,7 @@
     <header class="section-head section-head--split reveal">
       <div>
         <p class="eyebrow">Tires</p>
-        <h2 class="section-title" id="tires-title">Your connection<br>to the road.</h2>
+        <h2 class="section-title" id="tires-title">Your connection<br><span class="hl">to the road.</span></h2>
       </div>
       <div>
         <p class="section-lede">Every stop, turn and lane change depends on four contact patches about the size of your hand. Tread depth, sidewall condition, balance and properly torqued lug nuts all play a part in how safely your vehicle handles.</p>
@@ -227,7 +229,7 @@
     <header class="section-head section-head--split reveal">
       <div>
         <p class="eyebrow">The shop</p>
-        <h2 class="section-title" id="shop-title">Local shop.<br>Real people.<br>Real work.</h2>
+        <h2 class="section-title" id="shop-title">Local shop.<br>Real people.<br><span class="hl">Real work.</span></h2>
       </div>
       <p class="section-lede">Hugo's Alignment, Tires &amp; Auto Repair has served drivers for more than a decade with a focus on quality automotive service and vehicle safety.</p>
     </header>
@@ -280,7 +282,7 @@
   <div class="container location__layout">
     <div class="location__info reveal">
       <p class="eyebrow">Visit or call</p>
-      <h2 class="section-title" id="location-title">Your Phoenix<br>auto shop.</h2>
+      <h2 class="section-title" id="location-title">Your Phoenix<br><span class="hl">auto shop.</span></h2>
       <p class="location__name">Hugo's Alignment, Tires &amp; Auto Repair</p>
       <address class="location__nap">
         <a class="location__line" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">
@@ -319,7 +321,7 @@
   <div class="container request__layout">
     <header class="request__head reveal">
       <p class="eyebrow">Request service</p>
-      <h2 class="section-title" id="request-title">What does your<br>vehicle need?</h2>
+      <h2 class="section-title" id="request-title">What does your<br><span class="hl">vehicle need?</span></h2>
       <p>Send a few details and Hugo's will follow up. Need help sooner? Calling is the fastest way to reach the shop.</p>
       <a class="btn btn--line" href="{{TEL}}" data-cta="call-request">Call {{PHONE}}</a>
     </header>

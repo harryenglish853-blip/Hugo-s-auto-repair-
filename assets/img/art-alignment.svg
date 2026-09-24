@@ -7,6 +7,6 @@
 <path d="M285 330 Q400 300 515 330 L505 420 Q400 400 295 420 Z" fill="#0d0e10" stroke="#3c4146" stroke-width="2"/>
 <line x1="232" y1="230" x2="568" y2="230" stroke="#8e969f" stroke-width="6"/>
 <line x1="400" y1="20" x2="400" y2="500" stroke="#565c63" stroke-width="2" stroke-dasharray="10 8"/>
-<circle cx="205" cy="230" r="82" fill="none" stroke="#2c3035" stroke-width="3"/><g class="ac-wheel ac-l"><rect x="179" y="160" width="52" height="140" rx="12" fill="#1c1e21" stroke="#c9ced4" stroke-width="3"/><line x1="205" y1="40" x2="205" y2="420" stroke="#f0a431" stroke-width="2.5" class="ac-beam"/></g>
-<circle cx="595" cy="230" r="82" fill="none" stroke="#2c3035" stroke-width="3"/><g class="ac-wheel ac-r"><rect x="569" y="160" width="52" height="140" rx="12" fill="#1c1e21" stroke="#c9ced4" stroke-width="3"/><line x1="595" y1="40" x2="595" y2="420" stroke="#f0a431" stroke-width="2.5" class="ac-beam"/></g>
+<circle cx="205" cy="230" r="82" fill="none" stroke="#2c3035" stroke-width="3"/><g class="ac-wheel ac-l"><rect x="179" y="160" width="52" height="140" rx="12" fill="#1c1e21" stroke="#c9ced4" stroke-width="3"/><line x1="205" y1="40" x2="205" y2="420" stroke="#f9d10e" stroke-width="2.5" class="ac-beam"/></g>
+<circle cx="595" cy="230" r="82" fill="none" stroke="#2c3035" stroke-width="3"/><g class="ac-wheel ac-r"><rect x="569" y="160" width="52" height="140" rx="12" fill="#1c1e21" stroke="#c9ced4" stroke-width="3"/><line x1="595" y1="40" x2="595" y2="420" stroke="#f9d10e" stroke-width="2.5" class="ac-beam"/></g>
 </svg>

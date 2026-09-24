@@ -41,12 +41,36 @@ BUSINESS = {
         "https://www.yelp.com/biz/hugo-s-alignment-and-tire-shop-phoenix-5",
         "https://www.facebook.com/100090052066585/",
     ],
-    "services": ["Tires", "Wheel Alignment", "Auto Repair", "Transmission Repair"],
+    "services": ["Tires", "Wheel Alignment", "Auto Repair", "Transmission Repair", "Custom Wheels & Tires",
+                 "Lift, Leveling & Drop Kits", "Suspension", "Brakes & Rotors", "Oil Changes & Maintenance",
+                 "Engine Repair & Diagnostics", "Electrical Repair", "A/C Repair", "Steering", "Welding & Fabrication"],
 }
 
 FULL_ADDRESS = f"{BUSINESS['street']}, {BUSINESS['city']}, {BUSINESS['region']} {BUSINESS['zip']}"
 DIRECTIONS = "https://www.google.com/maps/dir/?api=1&destination=" + quote_plus(FULL_ADDRESS)
 TEL = "tel:" + BUSINESS["phone_e164"]
+
+# Shop photos in assets/img/shop/<name>-{480,800,1180}.{jpg,webp}: intrinsic size of the largest file
+PHOTOS = {
+    "control-arms-accord": (1191, 890),
+    "level-kit-silverado": (1191, 1538),
+    "level-kit-tires-silverado": (1191, 890),
+    "alignment-4runner": (1177, 890),
+    "engine-jeep": (1191, 1586),
+}
+# {{photo:name|alt text|sizes}} or {{photo:name|alt text|sizes|eager}}
+PHOTO_RE = re.compile(r"\{\{photo:([\w-]+)\|([^|}]*)\|([^|}]*)(?:\|(eager))?\}\}")
+
+
+def photo(m):
+    name, alt, sizes, eager = m.groups()
+    w, h = PHOTOS[name]
+    ss = lambda ext: ", ".join(f"{{{{ROOT}}}}assets/img/shop/{name}-{x}.{ext} {x}w" for x in (480, 800, 1180))
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    return (f'<picture><source type="image/webp" srcset="{ss("webp")}" sizes="{sizes}">'
+            f'<img src="{{{{ROOT}}}}assets/img/shop/{name}-800.jpg" srcset="{ss("jpg")}" sizes="{sizes}" '
+            f'alt="{alt}" width="{w}" height="{h}" {load} decoding="async"></picture>')
+
 
 META_RE = re.compile(r"^<!--META\s+(\{.*?\})\s*-->\s*", re.S)
 INCLUDE_RE = re.compile(r"\{\{include:([\w.\-]+)\}\}")
@@ -59,10 +83,16 @@ def asset_version():
     return h.hexdigest()[:8]
 
 
-def expand_includes(text, depth=0):
+def partial(name, lang):
+    """Language-specific partial (src/partials/<lang>/name) if present, else the shared one."""
+    localized = PARTIALS / lang / name
+    return (localized if localized.exists() else PARTIALS / name).read_text()
+
+
+def expand_includes(text, lang, depth=0):
     if depth > 5:
         raise RuntimeError("include nesting too deep")
-    return INCLUDE_RE.sub(lambda m: expand_includes((PARTIALS / m.group(1)).read_text(), depth + 1), text)
+    return INCLUDE_RE.sub(lambda m: expand_includes(partial(m.group(1), lang), lang, depth + 1), text)
 
 
 def ld(obj):
@@ -111,6 +141,7 @@ def page_schema(meta):
     blocks = []
     kinds = meta.get("schema", [])
     url = SITE_URL + meta["path"]
+    es = meta.get("lang") == "es"
     if "business" in kinds:
         blocks.append(business_schema())
     if "website" in kinds:
@@ -119,17 +150,19 @@ def page_schema(meta):
     if "service" in kinds:
         blocks.append({
             "@context": "https://schema.org", "@type": "Service",
-            "name": f"{meta['service_name']} in Phoenix, AZ",
+            "name": f"{meta['service_name']} {'en' if es else 'in'} Phoenix, AZ",
             "serviceType": meta["service_name"],
             "provider": {"@id": f"{SITE_URL}/#business"},
             "areaServed": {"@type": "City", "name": "Phoenix"},
             "url": url,
+            "inLanguage": meta.get("lang", "en"),
         })
     if "breadcrumb" in kinds:
         blocks.append({
             "@context": "https://schema.org", "@type": "BreadcrumbList",
             "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
+                {"@type": "ListItem", "position": 1, "name": "Inicio" if es else "Home",
+                 "item": f"{SITE_URL}/es/" if es else f"{SITE_URL}/"},
                 {"@type": "ListItem", "position": 2, "name": meta["breadcrumb"], "item": url},
             ],
         })
@@ -149,25 +182,47 @@ def root_prefix(meta):
     return "../" * depth if depth else "./"
 
 
-def render(page_file, version):
+def read_page(page_file, lang):
     raw = page_file.read_text()
     m = META_RE.match(raw)
     if not m:
         raise SystemExit(f"{page_file}: missing META block")
     meta = json.loads(m.group(1))
-    body = raw[m.end():]
+    meta.setdefault("lang", lang)
+    return meta, raw[m.end():]
 
+
+def rel(from_path, to_path, meta):
+    """Relative link from one page URL to another (keeps the site working under a sub-path)."""
+    return root_prefix(meta) + to_path.lstrip("/")
+
+
+def hreflang_links(meta):
+    alt = meta.get("alt")
+    if not alt or meta.get("noindex"):
+        return ""
+    en, es = (meta["path"], alt) if meta["lang"] == "en" else (alt, meta["path"])
+    return "\n".join([
+        f'<link rel="alternate" hreflang="en" href="{SITE_URL}{en}">',
+        f'<link rel="alternate" hreflang="es" href="{SITE_URL}{es}">',
+        f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}{en}">',
+    ])
+
+
+def render(page_file, meta, body, version):
+    lang = meta["lang"]
     html = "\n".join([
-        (PARTIALS / "head.html").read_text(),
+        partial("head.html", lang),
         '<body>',
-        (PARTIALS / "header.html").read_text(),
+        partial("header.html", lang),
         '<main id="main" tabindex="-1">',
         body,
         "</main>",
-        (PARTIALS / "footer.html").read_text(),
+        partial("footer.html", lang),
         "</body>\n</html>\n",
     ])
-    html = expand_includes(html)
+    html = expand_includes(html, lang)
+    html = PHOTO_RE.sub(photo, html)
 
     nav = meta.get("nav", "")
     for key in ("services", "tires", "alignment", "repair", "transmission"):
@@ -186,6 +241,10 @@ def render(page_file, version):
         "{{PHONE}}": BUSINESS["phone_display"],
         "{{TEL}}": TEL,
         "{{DIRECTIONS}}": DIRECTIONS.replace("&", "&amp;"),
+        "{{LANG}}": lang,
+        "{{OG_LOCALE}}": "es_US" if lang == "es" else "en_US",
+        "{{HREFLANG}}": hreflang_links(meta),
+        "{{ALT_HREF}}": rel(meta["path"], meta.get("alt") or ("/" if lang == "es" else "/es/"), meta),
     }
     for k, v in replacements.items():
         html = html.replace(k, v)
@@ -206,23 +265,34 @@ def escape_attr(s):
 def write_sitemap(metas):
     today = date.today().isoformat()
     urls = []
-    for m in sorted(metas, key=lambda m: -float(m.get("priority", 0.5))):
+    for m in sorted(metas, key=lambda m: (m["lang"] != "en", -float(m.get("priority", 0.5)))):
         if m.get("noindex"):
             continue
+        alts = ""
+        if m.get("alt"):
+            en, es = (m["path"], m["alt"]) if m["lang"] == "en" else (m["alt"], m["path"])
+            alts = (f'<xhtml:link rel="alternate" hreflang="en" href="{SITE_URL}{en}"/>'
+                    f'<xhtml:link rel="alternate" hreflang="es" href="{SITE_URL}{es}"/>')
         urls.append(
-            f"  <url><loc>{SITE_URL}{m['path']}</loc><lastmod>{today}</lastmod>"
+            f"  <url><loc>{SITE_URL}{m['path']}</loc>{alts}<lastmod>{today}</lastmod>"
             f"<changefreq>{m.get('changefreq', 'monthly')}</changefreq><priority>{m.get('priority', '0.5')}</priority></url>"
         )
     (ROOT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + "\n</urlset>\n"
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(urls) + "\n</urlset>\n"
     )
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
 
 
 def main():
     version = asset_version()
-    metas = [render(p, version) for p in sorted(PAGES.glob("*.html"))]
+    pages = [(p, *read_page(p, "en")) for p in sorted(PAGES.glob("*.html"))]
+    pages += [(p, *read_page(p, "es")) for p in sorted((PAGES / "es").glob("*.html"))]
+    paths = {m["path"] for _, m, _ in pages}
+    for p, m, _ in pages:
+        if m.get("alt") and m["alt"] not in paths:
+            raise SystemExit(f"{p}: alt page {m['alt']} does not exist")
+    metas = [render(p, m, body, version) for p, m, body in pages]
     write_sitemap(metas)
     print(f"built {len(metas)} pages (assets v{version})")
 

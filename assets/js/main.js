@@ -8,6 +8,55 @@
   var PHONE = '(602) 242-0442';
   var TEL = 'tel:+16022420442';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var LANG = (document.documentElement.lang || 'en').slice(0, 2) === 'es' ? 'es' : 'en';
+
+  /* UI strings (English / Spanish) */
+  var T = {
+    en: {
+      noticing: "What I'm noticing: ",
+      stars: ' out of 5 stars',
+      via: 'via',
+      locale: 'en-US',
+      open: 'Open now · until 6:00 PM today',
+      closed: 'Closed now · opens 8:00 AM ',
+      today: 'today', tomorrow: 'tomorrow', monday: 'Monday',
+      err: {
+        name: 'Please enter your name.',
+        phone: 'Please enter a phone number we can call back, including area code.',
+        email: 'Please enter a valid email address, or leave it blank.',
+        vehicle_year: 'Please enter a 4-digit year, like 2014.',
+        service: 'Please choose the service you need (or "Not Sure").',
+        other: 'Please check this field.'
+      },
+      notConnected: "<strong>Online requests aren't connected yet.</strong> Your request was not sent. Please call Hugo's at ",
+      sending: 'Sending…',
+      subject: 'Service request: ',
+      success: "<strong>Thanks. Hugo's received your request.</strong> The shop will follow up soon. Need help sooner? Call ",
+      failed: "<strong>Sorry, your request didn't go through.</strong> Please try again, or call Hugo's at "
+    },
+    es: {
+      noticing: 'Lo que estoy notando: ',
+      stars: ' de 5 estrellas',
+      via: 'en',
+      locale: 'es-US',
+      open: 'Abierto ahora · hasta las 6:00 PM',
+      closed: 'Cerrado ahora · abre a las 8:00 AM ',
+      today: 'hoy', tomorrow: 'mañana', monday: 'el lunes',
+      err: {
+        name: 'Por favor escribe tu nombre.',
+        phone: 'Por favor escribe un número de teléfono con código de área.',
+        email: 'Escribe un correo electrónico válido o déjalo en blanco.',
+        vehicle_year: 'Escribe el año con 4 dígitos, por ejemplo 2014.',
+        service: 'Elige el servicio que necesitas (o "No estoy seguro").',
+        other: 'Por favor revisa este campo.'
+      },
+      notConnected: '<strong>Las solicitudes en línea aún no están conectadas.</strong> Tu solicitud no se envió. Por favor llama a Hugo\'s al ',
+      sending: 'Enviando…',
+      subject: 'Solicitud de servicio: ',
+      success: '<strong>Gracias. Hugo\'s recibió tu solicitud.</strong> El taller se comunicará contigo pronto. ¿Lo necesitas antes? Llama al ',
+      failed: '<strong>Lo sentimos, tu solicitud no se pudo enviar.</strong> Inténtalo de nuevo o llama a Hugo\'s al '
+    }
+  }[LANG];
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
@@ -40,7 +89,7 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && header.classList.contains('is-open')) { setMenu(false); toggle.focus(); }
     });
-    window.matchMedia('(min-width: 1100px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
+    window.matchMedia('(min-width: 1240px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
   }
 
   /* ---------- directions: open Apple Maps on Apple devices, Google Maps elsewhere ---------- */
@@ -108,7 +157,7 @@
       if (!chosen) return;
       var sel = $('#f-service'); var msg = $('#f-message');
       if (sel && !sel.value) sel.value = chosen.getAttribute('data-service') || 'Not Sure';
-      if (msg && !msg.value) msg.value = 'What I\'m noticing: ' + chosen.getAttribute('data-problem') + '\n';
+      if (msg && !msg.value) msg.value = T.noticing + chosen.getAttribute('data-problem') + '\n';
     });
   }
 
@@ -169,11 +218,11 @@
         ? '<a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.source || 'Source') + '</a>'
         : esc(r.source || '');
       var date = r.date ? ' · <time datetime="' + esc(r.date) + '">' +
-        esc(new Date(r.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' })) + '</time>' : '';
+        esc(new Date(r.date + 'T12:00:00').toLocaleDateString(T.locale, { month: 'short', year: 'numeric' })) + '</time>' : '';
       return '<figure class="review">' +
-        '<div class="review__stars" role="img" aria-label="' + rating + ' out of 5 stars">' + stars + '</div>' +
+        '<div class="review__stars" role="img" aria-label="' + rating + T.stars + '">' + stars + '</div>' +
         '<blockquote><p>' + esc(r.text) + '</p></blockquote>' +
-        '<figcaption><strong>' + esc(r.name) + '</strong> · via ' + src + date + '</figcaption>' +
+        '<figcaption><strong>' + esc(r.name) + '</strong> · ' + T.via + ' ' + src + date + '</figcaption>' +
         '</figure>';
     }).join('');
   }
@@ -191,11 +240,11 @@
       var isWorkday = day !== 'Sun';
       var open = isWorkday && mins >= 8 * 60 && mins < 18 * 60;
       if (open) {
-        statusEl.textContent = 'Open now · until 6:00 PM today';
+        statusEl.textContent = T.open;
         statusEl.classList.add('is-open');
       } else {
-        var next = (isWorkday && mins < 8 * 60) ? 'today' : (day === 'Sat' ? 'Monday' : (day === 'Sun' ? 'Monday' : 'tomorrow'));
-        statusEl.textContent = 'Closed now · opens 8:00 AM ' + next;
+        var next = (isWorkday && mins < 8 * 60) ? T.today : (day === 'Sat' || day === 'Sun' ? T.monday : T.tomorrow);
+        statusEl.textContent = T.closed + next;
       }
     } catch (e) { /* leave blank */ }
   }
@@ -205,13 +254,7 @@
   if (form) {
     var statusBox = $('[data-form-status]', form);
     var submit = $('button[type="submit"]', form);
-    var messages = {
-      name: 'Please enter your name.',
-      phone: 'Please enter a phone number we can call back, including area code.',
-      email: 'Please enter a valid email address, or leave it blank.',
-      vehicle_year: 'Please enter a 4-digit year, like 2014.',
-      service: 'Please choose the service you need (or "Not Sure").'
-    };
+    var messages = T.err;
 
     var showStatus = function (kind, html) {
       statusBox.hidden = false;
@@ -231,7 +274,7 @@
       var id = field.id + '-error';
       var p = document.createElement('p');
       p.className = 'field__error'; p.id = id;
-      p.textContent = messages[field.name] || 'Please check this field.';
+      p.textContent = messages[field.name] || messages.other;
       field.setAttribute('aria-invalid', 'true');
       field.setAttribute('aria-describedby', ((field.getAttribute('aria-describedby') || '') + ' ' + id).trim());
       field.parentNode.appendChild(p);
@@ -260,31 +303,25 @@
 
       var endpoint = (CONFIG.formEndpoint || '').trim();
       if (!endpoint) {
-        showStatus('error',
-          '<p><strong>Online requests aren\'t connected yet.</strong> Your request was not sent. ' +
-          'Please call Hugo\'s at <a href="' + TEL + '">' + PHONE + '</a>.</p>');
+        showStatus('error', '<p>' + T.notConnected + '<a href="' + TEL + '">' + PHONE + '</a>.</p>');
         return;
       }
 
       submit.disabled = true;
       var label = submit.textContent;
-      submit.textContent = 'Sending…';
+      submit.textContent = T.sending;
       var data = new FormData(form);
-      data.append('_subject', 'Service request: ' + (data.get('service') || 'Website'));
+      data.append('_subject', T.subject + (data.get('service') || 'Website'));
 
       fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
         .then(function (res) {
           if (!res.ok) throw new Error('HTTP ' + res.status);
           form.reset();
           $$('[aria-invalid]', form).forEach(clearError);
-          showStatus('success',
-            '<p><strong>Thanks. Hugo\'s received your request.</strong> ' +
-            'The shop will follow up soon. Need help sooner? Call <a href="' + TEL + '">' + PHONE + '</a>.</p>');
+          showStatus('success', '<p>' + T.success + '<a href="' + TEL + '">' + PHONE + '</a>.</p>');
         })
         .catch(function () {
-          showStatus('error',
-            '<p><strong>Sorry, your request didn\'t go through.</strong> ' +
-            'Please try again, or call Hugo\'s at <a href="' + TEL + '">' + PHONE + '</a>.</p>');
+          showStatus('error', '<p>' + T.failed + '<a href="' + TEL + '">' + PHONE + '</a>.</p>');
         })
         .then(function () {
           submit.disabled = false;

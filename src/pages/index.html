@@ -1,4 +1,4 @@
-<!--META {"path": "/", "title": "Hugo's Alignment, Tires & Auto Repair | Phoenix, AZ", "description": "Hugo's Alignment, Tires & Auto Repair serves Phoenix drivers with tires, wheel alignment and automotive repair. Call (602) 242-0442.", "nav": "home", "schema": ["business", "website"], "changefreq": "monthly", "priority": "1.0"} -->
+<!--META {"path": "/", "alt": "/es/", "title": "Hugo's Alignment, Tires & Auto Repair | Phoenix, AZ", "description": "Hugo's Alignment, Tires & Auto Repair serves Phoenix drivers with tires, wheel alignment and automotive repair. Call (602) 242-0442.", "nav": "home", "schema": ["business", "website"], "changefreq": "monthly", "priority": "1.0"} -->
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" aria-labelledby="hero-title">
@@ -43,28 +43,31 @@
 <!-- ============================== SERVICES ============================== -->
 <section class="section services" id="services" aria-labelledby="services-title">
   <div class="container">
-    <header class="section-head reveal">
-      <p class="eyebrow">Services</p>
-      <h2 class="section-title" id="services-title">One shop.<br><span class="hl">More ways to keep you moving.</span></h2>
+    <header class="section-head section-head--split reveal">
+      <div>
+        <p class="eyebrow">Services</p>
+        <h2 class="section-title" id="services-title">One shop.<br><span class="hl">More ways to keep you moving.</span></h2>
+      </div>
+      <ul class="values" aria-label="What Hugo's stands for">
+        <li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-shield"/></svg>Quality work</li>
+        <li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-tag"/></svg>Honest prices</li>
+        <li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-gear"/></svg>Keeping you on the road</li>
+      </ul>
     </header>
 
     <div class="services__grid">
       <article class="service-card reveal">
-        <div class="service-card__media">
-          <img src="{{ROOT}}assets/img/art-tires.svg" alt="Close-up illustration of tire tread" width="800" height="520" loading="lazy" decoding="async">
-        </div>
+        <div class="service-card__media">{{photo:level-kit-tires-silverado|Blue Chevrolet Silverado with new all-terrain tires at Hugo's|(min-width: 760px) 50vw, 100vw}}</div>
         <div class="service-card__body">
           <p class="service-card__num">01</p>
           <h3 class="service-card__title"><a href="{{ROOT}}tires/">Tires</a></h3>
-          <p>Your tires are the only part of the vehicle touching the road. Hugo's helps Phoenix drivers with tire service and keeping tires in safe, road-ready condition.</p>
+          <p>New tires in all brands and sizes, custom wheel and tire packages, and lift, leveling and drop kits.</p>
           <a class="btn btn--line" href="{{TEL}}" data-cta="call-tires-card">Call About Tires</a>
         </div>
       </article>
 
       <article class="service-card reveal">
-        <div class="service-card__media">
-          <img src="{{ROOT}}assets/img/art-alignment.svg" alt="Illustration of a front axle with wheel alignment reference lines" width="800" height="520" loading="lazy" decoding="async">
-        </div>
+        <div class="service-card__media">{{photo:alignment-4runner|White Toyota 4Runner at Hugo's after an alignment|(min-width: 760px) 50vw, 100vw}}</div>
         <div class="service-card__body">
           <p class="service-card__num">02</p>
           <h3 class="service-card__title"><a href="{{ROOT}}wheel-alignment/">Wheel Alignment</a></h3>
@@ -74,21 +77,17 @@
       </article>
 
       <article class="service-card reveal">
-        <div class="service-card__media">
-          <img src="{{ROOT}}assets/img/art-repair.svg" alt="Illustration of a brake rotor, caliper and torque wrench" width="800" height="520" loading="lazy" decoding="async">
-        </div>
+        <div class="service-card__media">{{photo:control-arms-accord|Blue Honda Accord on a lift in Hugo's service bay|(min-width: 760px) 50vw, 100vw}}</div>
         <div class="service-card__body">
           <p class="service-card__num">03</p>
           <h3 class="service-card__title"><a href="{{ROOT}}auto-repair/">Auto Repair</a></h3>
-          <p>From everyday automotive concerns to more involved repairs, Hugo's helps Phoenix drivers get their vehicles back on the road.</p>
+          <p>Engine repair and diagnostics, brakes and rotors, suspension, electrical, A/C, oil changes and more. Hugo's helps Phoenix drivers get back on the road.</p>
           <a class="btn btn--line" href="{{TEL}}" data-cta="call-repair-card">Call About Your Vehicle</a>
         </div>
       </article>
 
       <article class="service-card reveal">
-        <div class="service-card__media">
-          <img src="{{ROOT}}assets/img/art-transmission.svg" alt="Illustration of a planetary gear set used in automatic transmissions" width="800" height="520" loading="lazy" decoding="async">
-        </div>
+        <div class="service-card__media">{{photo:engine-jeep|White Jeep with the hood open during engine and transmission work at Hugo's|(min-width: 760px) 50vw, 100vw}}</div>
         <div class="service-card__body">
           <p class="service-card__num">04</p>
           <h3 class="service-card__title"><a href="{{ROOT}}transmission-repair/">Transmission Repair</a></h3>
@@ -97,6 +96,38 @@
         </div>
       </article>
     </div>
+
+    <div class="all-services reveal">
+      <h3 class="all-services__title">We do all this <span class="hl">and more</span></h3>
+      <ul class="all-services__list">
+        <li>Alignments</li>
+        <li>New tires: all brands &amp; sizes</li>
+        <li>Custom wheels &amp; tires</li>
+        <li>Lift kits · leveling kits · drop kits</li>
+        <li>Suspension work</li>
+        <li>Brakes &amp; rotors</li>
+        <li>Oil changes &amp; maintenance</li>
+        <li>Engine repair &amp; diagnostics</li>
+        <li>Transmission repair</li>
+        <li>Electrical repair</li>
+        <li>A/C repair</li>
+        <li>Steering &amp; more</li>
+        <li>Welding &amp; fabrication</li>
+      </ul>
+    </div>
+
+    <aside class="financing reveal" aria-labelledby="financing-title">
+      <div>
+        <p class="eyebrow">Financing</p>
+        <h3 class="financing__title" id="financing-title">Financing <span class="hl">available</span></h3>
+        <p class="financing__lede">Quick approval. Easy payments.</p>
+        <ul class="financing__partners" aria-label="Financing providers">
+          <li>Snap Finance</li><li>Koalafi</li><li>EasyPay Finance</li>
+        </ul>
+        <p class="financing__note">Financing is offered through third-party providers and is subject to their approval. Ask Hugo's for details.</p>
+      </div>
+      <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-financing">Ask About Financing</a>
+    </aside>
   </div>
 </section>
 
@@ -231,7 +262,13 @@
         <p class="eyebrow">The shop</p>
         <h2 class="section-title" id="shop-title">Local shop.<br>Real people.<br><span class="hl">Real work.</span></h2>
       </div>
-      <p class="section-lede">Hugo's Alignment, Tires &amp; Auto Repair has served drivers for more than a decade with a focus on quality automotive service and vehicle safety.</p>
+      <div>
+        <p class="section-lede">Hugo's Alignment, Tires &amp; Auto Repair has served drivers for more than a decade with a focus on quality automotive service and vehicle safety.</p>
+        <blockquote class="owner-quote">
+          <p>“Our goal is to provide our clients quality service for their vehicles, so everyone stays safe. We specialize in automotive services and give every client professional, customized service.”</p>
+          <footer>Hugo's, from the shop's Yelp page</footer>
+        </blockquote>
+      </div>
     </header>
 
     <!--
@@ -240,10 +277,11 @@
       Only use authentic photos of Hugo's work. Never stock photos of other shops.
     -->
     <div class="gallery">
-      <figure class="shot shot--feature"><picture><source type="image/webp" srcset="{{ROOT}}assets/img/shop/control-arms-accord-480.webp 480w, {{ROOT}}assets/img/shop/control-arms-accord-800.webp 800w, {{ROOT}}assets/img/shop/control-arms-accord-1180.webp 1180w" sizes="(min-width: 760px) 50vw, 100vw"><img src="{{ROOT}}assets/img/shop/control-arms-accord-800.jpg" srcset="{{ROOT}}assets/img/shop/control-arms-accord-480.jpg 480w, {{ROOT}}assets/img/shop/control-arms-accord-800.jpg 800w, {{ROOT}}assets/img/shop/control-arms-accord-1180.jpg 1180w" sizes="(min-width: 760px) 50vw, 100vw" alt="Blue Honda Accord on a two-post lift in one of Hugo's service bays, technicians working in the background" width="1191" height="890" loading="lazy" decoding="async"></picture><figcaption>Front lower control arms &amp; rotors replaced</figcaption></figure>
-      <figure class="shot shot--tall"><picture><source type="image/webp" srcset="{{ROOT}}assets/img/shop/level-kit-silverado-480.webp 480w, {{ROOT}}assets/img/shop/level-kit-silverado-800.webp 800w, {{ROOT}}assets/img/shop/level-kit-silverado-1180.webp 1180w" sizes="(min-width: 760px) 25vw, 50vw"><img src="{{ROOT}}assets/img/shop/level-kit-silverado-800.jpg" srcset="{{ROOT}}assets/img/shop/level-kit-silverado-480.jpg 480w, {{ROOT}}assets/img/shop/level-kit-silverado-800.jpg 800w, {{ROOT}}assets/img/shop/level-kit-silverado-1180.jpg 1180w" sizes="(min-width: 760px) 25vw, 50vw" alt="Gray Chevrolet Silverado single cab with a level kit and off-road tires, from a Hugo's social post with the shop logo" width="1191" height="1538" loading="lazy" decoding="async"></picture><figcaption>Level kit installation</figcaption></figure>
-      <figure class="shot "><picture><source type="image/webp" srcset="{{ROOT}}assets/img/shop/level-kit-tires-silverado-480.webp 480w, {{ROOT}}assets/img/shop/level-kit-tires-silverado-800.webp 800w, {{ROOT}}assets/img/shop/level-kit-tires-silverado-1180.webp 1180w" sizes="(min-width: 760px) 25vw, 50vw"><img src="{{ROOT}}assets/img/shop/level-kit-tires-silverado-800.jpg" srcset="{{ROOT}}assets/img/shop/level-kit-tires-silverado-480.jpg 480w, {{ROOT}}assets/img/shop/level-kit-tires-silverado-800.jpg 800w, {{ROOT}}assets/img/shop/level-kit-tires-silverado-1180.jpg 1180w" sizes="(min-width: 760px) 25vw, 50vw" alt="Blue Chevrolet Silverado crew cab after a level kit and new all-terrain tires, parked at Hugo's" width="1191" height="890" loading="lazy" decoding="async"></picture><figcaption>Transformation: level kit &amp; new tires</figcaption></figure>
-      <figure class="shot "><picture><source type="image/webp" srcset="{{ROOT}}assets/img/shop/alignment-4runner-480.webp 480w, {{ROOT}}assets/img/shop/alignment-4runner-800.webp 800w, {{ROOT}}assets/img/shop/alignment-4runner-1180.webp 1180w" sizes="(min-width: 760px) 25vw, 50vw"><img src="{{ROOT}}assets/img/shop/alignment-4runner-800.jpg" srcset="{{ROOT}}assets/img/shop/alignment-4runner-480.jpg 480w, {{ROOT}}assets/img/shop/alignment-4runner-800.jpg 800w, {{ROOT}}assets/img/shop/alignment-4runner-1180.jpg 1180w" sizes="(min-width: 760px) 25vw, 50vw" alt="White Toyota 4Runner at Hugo's after an alignment, with other customer vehicles in the lot" width="1177" height="890" loading="lazy" decoding="async"></picture><figcaption>Alignments</figcaption></figure>
+      <figure class="shot shot--feature">{{photo:control-arms-accord|Blue Honda Accord on a two-post lift in one of Hugo's service bays, technicians working in the background|(min-width: 760px) 50vw, 100vw}}<figcaption>Front lower control arms &amp; rotors replaced</figcaption></figure>
+      <figure class="shot shot--tall">{{photo:level-kit-silverado|Gray Chevrolet Silverado single cab with a level kit and off-road tires, from a Hugo's social post with the shop logo|(min-width: 760px) 25vw, 50vw}}<figcaption>Level kit installation</figcaption></figure>
+      <figure class="shot shot--tall">{{photo:engine-jeep|White Jeep with the hood open in Hugo's service bay while a technician works on the engine|(min-width: 760px) 25vw, 50vw}}<figcaption>A/C service, transmission service &amp; motor replacement</figcaption></figure>
+      <figure class="shot shot--wide">{{photo:level-kit-tires-silverado|Blue Chevrolet Silverado crew cab after a level kit and new all-terrain tires, parked at Hugo's|(min-width: 760px) 50vw, 100vw}}<figcaption>Transformation: level kit &amp; new tires</figcaption></figure>
+      <figure class="shot shot--wide">{{photo:alignment-4runner|White Toyota 4Runner at Hugo's after an alignment, with other customer vehicles in the lot|(min-width: 760px) 50vw, 100vw}}<figcaption>Alignments</figcaption></figure>
     </div>
     <p class="shop__visit reveal">Recent work from the shop. The best way to see it is in person: <a href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">6040 N Black Canyon Hwy, Phoenix</a>.</p>
   </div>
@@ -353,8 +391,17 @@
           <option value="">Choose one</option>
           <option>Tires</option>
           <option>Alignment</option>
-          <option>Auto Repair</option>
+          <option value="Custom wheels &amp; tires">Custom wheels &amp; tires</option>
+          <option value="Lift / leveling / drop kit">Lift / leveling / drop kit</option>
+          <option value="Suspension or steering">Suspension or steering</option>
+          <option value="Brakes &amp; rotors">Brakes &amp; rotors</option>
+          <option value="Oil change &amp; maintenance">Oil change &amp; maintenance</option>
+          <option value="Engine repair &amp; diagnostics">Engine repair &amp; diagnostics</option>
           <option>Transmission</option>
+          <option value="Electrical">Electrical</option>
+          <option value="A/C">A/C</option>
+          <option value="Welding &amp; fabrication">Welding &amp; fabrication</option>
+          <option value="Financing question">Financing question</option>
           <option>Not Sure</option>
         </select>
       </div>
@@ -362,6 +409,7 @@
         <label for="f-message">Message</label>
         <textarea id="f-message" name="message" rows="4" placeholder="What are you noticing? When did it start?"></textarea>
       </div>
+      <input type="hidden" name="language" value="English">
       <!-- spam trap: real visitors never see or fill this -->
       <div class="hp" aria-hidden="true">
         <label for="f-company">Company</label>

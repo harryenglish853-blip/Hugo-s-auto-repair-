@@ -1,0 +1,418 @@
+<!--META {"path": "/es/", "alt": "/", "title": "Hugo's Alignment, Tires & Auto Repair | Taller en Phoenix, AZ", "description": "Tu taller de confianza en Phoenix: llantas, alineaciones, mecánica y transmisiones. Financiamiento disponible. Llama al (602) 242-0442.", "nav": "home", "schema": ["business", "website"], "changefreq": "monthly", "priority": "1.0"} -->
+
+<!-- ============================== HERO ============================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__media" data-hero-media>
+    {{include:hero-scene.svg}}
+    
+  </div>
+  <div class="container hero__content">
+    <img class="hero__logo" src="{{ROOT}}assets/img/logo-400.png" srcset="{{ROOT}}assets/img/logo-200.png 200w, {{ROOT}}assets/img/logo-400.png 400w, {{ROOT}}assets/img/logo-576.png 576w"
+      sizes="(min-width: 1240px) 210px, (min-width: 777px) 17vw, 132px" width="400" height="393" alt="Logo de Hugo's Alignment and Tire Shop" fetchpriority="high">
+    <p class="eyebrow hero__eyebrow"><span class="dot" aria-hidden="true"></span> Phoenix, Arizona · Lun–Sáb 8AM–6PM</p>
+    <h1 class="hero__title" id="hero-title">
+      <span class="hero__brand">Hugo's Alignment, Tires &amp; Auto Repair</span>
+      <span class="hero__headline">Tu taller de confianza <br><span class="hl">para todo tu vehículo.</span></span>
+    </h1>
+    <p class="hero__lede">Llantas, alineaciones y mecánica automotriz en un taller local de Phoenix enfocado en mantener tu vehículo seguro y confiable. ¡Hacemos todo esto y más!</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-hero">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+        Llamar {{PHONE}}
+      </a>
+      <a class="btn btn--ghost btn--lg" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><use href="#i-pin"/></svg>
+        Cómo llegar
+      </a>
+      <a class="btn btn--text" href="#request">Solicitar servicio <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#services" aria-label="Ir a servicios"><span aria-hidden="true"></span></a>
+</section>
+
+<!-- ============================== TRUST STRIP ============================== -->
+<section class="trust" aria-label="El taller en breve">
+  <ul class="container trust__list">
+    <li class="trust__item reveal"><strong>10+ años</strong><span>En el negocio</span></li>
+    <li class="trust__item reveal"><strong>Phoenix, AZ</strong><span>6040 N Black Canyon Hwy</span></li>
+    <li class="trust__item reveal"><strong>Llantas • Alineación</strong><span>y mecánica</span></li>
+    <li class="trust__item reveal"><strong>Lun–Sáb</strong><span>8:00 AM – 6:00 PM</span></li>
+  </ul>
+</section>
+
+<!-- ============================== SERVICES ============================== -->
+<section class="section services" id="services" aria-labelledby="services-title">
+  <div class="container">
+    <header class="section-head section-head--split reveal">
+      <div>
+        <p class="eyebrow">Servicios</p>
+        <h2 class="section-title" id="services-title">Un solo taller.<br><span class="hl">Todo para tu vehículo.</span></h2>
+      </div>
+      <ul class="values" aria-label="Lo que distingue a Hugo's">
+        <li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-shield"/></svg>Trabajo de calidad</li>
+        <li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-tag"/></svg>Precios honestos</li>
+        <li><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-gear"/></svg>Manteniendo tu camino</li>
+      </ul>
+    </header>
+
+    <div class="services__grid">
+      <article class="service-card reveal">
+        <div class="service-card__media">{{photo:level-kit-tires-silverado|Chevrolet Silverado azul con llantas nuevas todo terreno en Hugo's|(min-width: 760px) 50vw, 100vw}}</div>
+        <div class="service-card__body">
+          <p class="service-card__num">01</p>
+          <h3 class="service-card__title"><a href="{{ROOT}}es/llantas/">Llantas</a></h3>
+          <p>Llantas nuevas de todas las marcas y medidas, rines y llantas personalizados, y lift kits, leveling kits y drop kits.</p>
+          <a class="btn btn--line" href="{{TEL}}" data-cta="call-tires-card">Pregunta por llantas</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-card__media">{{photo:alignment-4runner|Toyota 4Runner blanca en Hugo's después de una alineación|(min-width: 760px) 50vw, 100vw}}</div>
+        <div class="service-card__body">
+          <p class="service-card__num">02</p>
+          <h3 class="service-card__title"><a href="{{ROOT}}es/alineacion/">Alineación</a></h3>
+          <p>Una mala alineación puede causar desgaste disparejo de las llantas, problemas en la dirección y que el vehículo se jale hacia un lado. Precisión en la que puedes confiar.</p>
+          <a class="btn btn--line" href="{{ROOT}}es/alineacion/">Servicio de alineación</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-card__media">{{photo:control-arms-accord|Honda Accord azul en un elevador del taller de Hugo's|(min-width: 760px) 50vw, 100vw}}</div>
+        <div class="service-card__body">
+          <p class="service-card__num">03</p>
+          <h3 class="service-card__title"><a href="{{ROOT}}es/reparacion-automotriz/">Mecánica general</a></h3>
+          <p>Reparación de motor y diagnósticos, frenos y rotores, suspensión, sistema eléctrico, A/A, cambios de aceite y más. Hugo's te pone de vuelta en el camino.</p>
+          <a class="btn btn--line" href="{{TEL}}" data-cta="call-repair-card">Llama por tu vehículo</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-card__media">{{photo:engine-jeep|Jeep blanco con el cofre abierto durante un trabajo de motor y transmisión en Hugo's|(min-width: 760px) 50vw, 100vw}}</div>
+        <div class="service-card__body">
+          <p class="service-card__num">04</p>
+          <h3 class="service-card__title"><a href="{{ROOT}}es/reparacion-de-transmision/">Transmisiones</a></h3>
+          <p>¿Se patina, cambia brusco o tarda en entrar la velocidad? Llama a Hugo's, cuéntanos qué hace tu transmisión y agenda una cita.</p>
+          <a class="btn btn--line" href="{{ROOT}}es/reparacion-de-transmision/">Servicio de transmisión</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="all-services reveal">
+      <h3 class="all-services__title">¡Hacemos todo esto <span class="hl">y más!</span></h3>
+      <ul class="all-services__list">
+        <li>Alineaciones</li>
+        <li>Llantas nuevas: todas las marcas y medidas</li>
+        <li>Rines y llantas personalizados</li>
+        <li>Lift kits · leveling kits · drop kits</li>
+        <li>Trabajo de suspensión</li>
+        <li>Frenos y rotores</li>
+        <li>Cambios de aceite y mantenimiento</li>
+        <li>Reparación de motor y diagnósticos</li>
+        <li>Reparación de transmisión</li>
+        <li>Reparación eléctrica</li>
+        <li>Reparación de A/A</li>
+        <li>Dirección y más</li>
+        <li>Soldadura y fabricación</li>
+      </ul>
+    </div>
+
+    <aside class="financing reveal" aria-labelledby="financing-title">
+      <div>
+        <p class="eyebrow">Financiamiento</p>
+        <h3 class="financing__title" id="financing-title">¡Financiamiento <span class="hl">disponible!</span></h3>
+        <p class="financing__lede">Aprobación rápida. Pagos fáciles.</p>
+        <ul class="financing__partners" aria-label="Opciones de financiamiento">
+          <li>Snap Finance</li><li>Koalafi</li><li>EasyPay Finance</li>
+        </ul>
+        <p class="financing__note">El financiamiento lo ofrecen compañías externas y está sujeto a su aprobación. Pregunta en Hugo's por los detalles.</p>
+      </div>
+      <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-financing">Pregunta por financiamiento</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================== PROBLEM → SOLUTION ============================== -->
+<section class="section section--alt problems" id="symptoms" aria-labelledby="problems-title">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Cuéntanos qué pasa</p>
+      <h2 class="section-title" id="problems-title">¿Qué le pasa a tu carro?</h2>
+      <p class="section-lede">Elige lo que estás notando. No adivinamos diagnósticos en línea: el siguiente paso es que Hugo's lo revise.</p>
+    </header>
+
+    <div class="problems__grid" role="group" aria-label="Síntomas comunes del vehículo" data-problems>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Se jala a la izquierda o derecha">Se jala a la izquierda o derecha</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Volante chueco">Volante chueco</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Desgaste disparejo de llantas">Desgaste disparejo de llantas</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Tiembla o vibra">Tiembla o vibra</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Problema con una llanta" data-service="Tires">Problema con una llanta</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Luz de advertencia">Luz de advertencia</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="Ruido extraño">Ruido extraño</button>
+      <button type="button" class="problem" aria-pressed="false" aria-controls="problem-answer" data-problem="No sé qué tiene">No sé qué tiene</button>
+    </div>
+
+    <div class="problems__answer" id="problem-answer" aria-live="polite" data-problem-answer hidden>
+      <p class="problems__selected">Seleccionaste: <strong data-problem-label></strong></p>
+      <p class="problems__headline">Vamos a revisarlo.</p>
+      <div class="problems__ctas">
+        <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-symptom">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+          Llama a Hugo's {{PHONE}}
+        </a>
+        <a class="btn btn--text" href="#request" data-problem-request>O envía una solicitud de servicio <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ALIGNMENT FEATURE ============================== -->
+<section class="section alignment" id="alignment" aria-labelledby="alignment-title">
+  <div class="container alignment__layout">
+    <div class="alignment__copy">
+      <p class="eyebrow reveal">Alineación</p>
+      <h2 class="section-title reveal" id="alignment-title">Camino derecho.<br><span class="hl">Volante derecho.</span></h2>
+      <p class="reveal">La alineación es el ángulo de tus ruedas entre sí y con respecto al camino. Las banquetas, los baches y el uso normal la pueden mover con el tiempo, y eso se nota en cómo maneja el vehículo y cómo se gastan las llantas.</p>
+      <h3 class="alignment__subhead reveal">Señales de que conviene revisar la alineación</h3>
+      <ul class="check-list reveal">
+        <li>El vehículo se va o se jala hacia un lado en un camino recto y plano</li>
+        <li>El volante queda chueco cuando vas derecho</li>
+        <li>Las llantas se gastan más de un lado que del otro</li>
+        <li>Pegaste hace poco con una banqueta, un bache o algo en el camino</li>
+        <li>Te instalaron llantas nuevas o piezas de dirección o suspensión</li>
+      </ul>
+      <a class="btn btn--primary reveal" href="{{TEL}}" data-cta="call-alignment">Pregunta por alineación</a>
+    </div>
+
+    <figure class="alignment__viz" data-align-viz style="--p:0">
+      <div class="alignment__status" aria-hidden="true">
+        <span class="alignment__state alignment__state--off">Desalineado</span>
+        <span class="alignment__arrow">→</span>
+        <span class="alignment__state alignment__state--on">Alineado</span>
+      </div>
+      <svg class="align-svg" viewBox="0 0 600 560" role="img" aria-labelledby="align-svg-title">
+        <title id="align-svg-title">Ilustración vista desde arriba de las ruedas delanteras de un vehículo pasando de abiertas a derechas</title>
+        <defs>
+          <pattern id="align-grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#1a1c1f"/></pattern>
+        </defs>
+        <rect width="600" height="560" fill="url(#align-grid)"/>
+        <line x1="300" y1="10" x2="300" y2="550" class="align-svg__center"/>
+        <!-- body -->
+        <path d="M170 540 L170 190 Q170 60 300 48 Q430 60 430 190 L430 540" class="align-svg__body"/>
+        <path d="M200 360 Q300 330 400 360 L392 450 Q300 430 208 450 Z" class="align-svg__glass"/>
+        <line x1="150" y1="230" x2="450" y2="230" class="align-svg__axle"/>
+        <!-- wheels -->
+        <g class="align-svg__wheel align-svg__wheel--l">
+          <line x1="118" y1="40" x2="118" y2="440" class="align-svg__beam"/>
+          <rect x="94" y="160" width="48" height="140" rx="12" class="align-svg__tire"/>
+        </g>
+        <g class="align-svg__wheel align-svg__wheel--r">
+          <line x1="482" y1="40" x2="482" y2="440" class="align-svg__beam"/>
+          <rect x="458" y="160" width="48" height="140" rx="12" class="align-svg__tire"/>
+        </g>
+        <!-- steering wheel -->
+        <g class="align-svg__steer" transform="translate(300 480)">
+          <g class="align-svg__steer-rot">
+            <circle r="38" class="align-svg__steer-rim"/>
+            <path d="M-38 0 H-12 M12 0 H38 M0 12 V38" class="align-svg__steer-spoke"/>
+            <circle r="12" class="align-svg__steer-hub"/>
+            <rect x="-3" y="-44" width="6" height="12" rx="2" class="align-svg__steer-mark"/>
+          </g>
+        </g>
+      </svg>
+      <figcaption class="alignment__caption">
+        <span>Solo es una ilustración. No muestra ni diagnostica tu vehículo.</span>
+        <span class="alignment__toggle" role="group" aria-label="Estado de la ilustración de alineación">
+          <button type="button" class="chip" data-align-set="0" aria-pressed="false">Desalineado</button>
+          <button type="button" class="chip" data-align-set="1" aria-pressed="false">Alineado</button>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================== TIRES ============================== -->
+<section class="section section--alt tires" id="tires" aria-labelledby="tires-title">
+  <div class="container">
+    <header class="section-head section-head--split reveal">
+      <div>
+        <p class="eyebrow">Llantas</p>
+        <h2 class="section-title" id="tires-title">Tu conexión<br><span class="hl">con el camino.</span></h2>
+      </div>
+      <div>
+        <p class="section-lede">Cada frenada, vuelta y cambio de carril depende de cuatro áreas de contacto del tamaño de tu mano. La profundidad del dibujo, el estado del costado, el balanceo y las tuercas bien apretadas influyen en qué tan seguro maneja tu vehículo.</p>
+        <a class="btn btn--primary" href="{{TEL}}" data-cta="call-tires">Pregunta por llantas</a>
+      </div>
+    </header>
+  </div>
+  
+  <ol class="tire-reel" aria-label="Detalles de la llanta" tabindex="0">
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-tread.svg" alt="Ilustración de un medidor de profundidad midiendo el dibujo de una llanta" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>01</span> Dibujo</figcaption></figure></li>
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-sidewall.svg" alt="Ilustración del costado de una llanta junto al rin" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>02</span> Costado</figcaption></figure></li>
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-wheel.svg" alt="Ilustración de un rin con su llanta" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>03</span> Rin</figcaption></figure></li>
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-lugs.svg" alt="Ilustración de cinco tuercas con el orden de apriete en estrella" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>04</span> Tuercas</figcaption></figure></li>
+    <li class="tire-reel__frame"><figure><img src="{{ROOT}}assets/img/seq-balance.svg" alt="Ilustración de un rin montado en una balanceadora" width="600" height="400" loading="lazy" decoding="async"><figcaption><span>05</span> Balanceo</figcaption></figure></li>
+  </ol>
+</section>
+
+<!-- ============================== REAL SHOP ============================== -->
+<section class="section shop" id="shop" aria-labelledby="shop-title">
+  <div class="container">
+    <header class="section-head section-head--split reveal">
+      <div>
+        <p class="eyebrow">El taller</p>
+        <h2 class="section-title" id="shop-title">Taller local.<br>Gente real.<br><span class="hl">Trabajo real.</span></h2>
+      </div>
+      <div>
+        <p class="section-lede">Hugo's Alignment, Tires &amp; Auto Repair lleva más de 10 años atendiendo a conductores, con un enfoque en el servicio automotriz de calidad y la seguridad de cada vehículo.</p>
+        <blockquote class="owner-quote">
+          <p>“Nuestra meta es brindar a nuestros clientes servicios de calidad para sus vehículos, para que todos estén seguros. Nos especializamos en servicios automotrices y damos un servicio profesional y personalizado a cada cliente.”</p>
+          <footer>Hugo's, en su página de Yelp</footer>
+        </blockquote>
+      </div>
+    </header>
+
+    <div class="gallery">
+      <figure class="shot shot--feature">{{photo:control-arms-accord|Honda Accord azul en un elevador de dos postes en el taller de Hugo's, con mecánicos trabajando al fondo|(min-width: 760px) 50vw, 100vw}}<figcaption>Cambio de brazos de control delanteros y rotores</figcaption></figure>
+      <figure class="shot shot--tall">{{photo:level-kit-silverado|Chevrolet Silverado gris de cabina sencilla con leveling kit y llantas todo terreno, de una publicación de Hugo's con su logo|(min-width: 760px) 25vw, 50vw}}<figcaption>Instalación de leveling kit</figcaption></figure>
+      <figure class="shot shot--tall">{{photo:engine-jeep|Jeep blanco con el cofre abierto en el taller de Hugo's mientras un mecánico trabaja en el motor|(min-width: 760px) 25vw, 50vw}}<figcaption>Servicio de A/A, servicio de transmisión y cambio de motor</figcaption></figure>
+      <figure class="shot shot--wide">{{photo:level-kit-tires-silverado|Chevrolet Silverado azul doble cabina con leveling kit y llantas nuevas todo terreno, en Hugo's|(min-width: 760px) 50vw, 100vw}}<figcaption>Transformación: leveling kit y llantas nuevas</figcaption></figure>
+      <figure class="shot shot--wide">{{photo:alignment-4runner|Toyota 4Runner blanca en Hugo's después de una alineación, con otros vehículos de clientes|(min-width: 760px) 50vw, 100vw}}<figcaption>Alineaciones</figcaption></figure>
+    </div>
+    <p class="shop__visit reveal">Trabajos recientes del taller. La mejor forma de conocerlo es en persona: <a href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">6040 N Black Canyon Hwy, Phoenix</a>.</p>
+  </div>
+</section>
+
+<!-- ============================== REVIEWS ============================== -->
+<section class="section section--alt reviews" id="reviews" aria-labelledby="reviews-title">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Reseñas</p>
+      <h2 class="section-title" id="reviews-title">Lo que dicen los conductores de Phoenix</h2>
+    </header>
+    <div class="reviews__list" data-reviews>
+      <p class="reviews__empty">Solo compartimos reseñas reales de clientes reales. Mira lo que dicen de Hugo's en sitios de reseñas independientes.</p>
+    </div>
+    <div class="reviews__more">
+      <a class="btn btn--ghost" href="https://www.yelp.com/biz/hugo-s-alignment-and-tire-shop-phoenix-5" target="_blank" rel="noopener" data-reviews-link>Leer más reseñas <span class="visually-hidden">(se abre en una pestaña nueva)</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== LOCATION ============================== -->
+<section class="section location" id="contact" aria-labelledby="location-title">
+  <div class="container location__layout">
+    <div class="location__info reveal">
+      <p class="eyebrow">Visítanos o llama</p>
+      <h2 class="section-title" id="location-title">Tu taller<br><span class="hl">en Phoenix.</span></h2>
+      <p class="location__name">Hugo's Alignment, Tires &amp; Auto Repair</p>
+      <address class="location__nap">
+        <a class="location__line" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-pin"/></svg>
+          <span>6040 N Black Canyon Hwy<br>Phoenix, AZ 85017</span>
+        </a>
+        <a class="location__line" href="{{TEL}}" data-cta="call-location">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+          <span>{{PHONE}}</span>
+        </a>
+        <p class="location__line">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-clock"/></svg>
+          <span>Lunes a sábado<br>8:00 AM – 6:00 PM</span>
+        </p>
+      </address>
+      <p class="location__open" data-open-status aria-live="polite"></p>
+      <div class="location__ctas">
+        <a class="btn btn--primary btn--lg" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn--ghost btn--lg" href="{{TEL}}" data-cta="call-location-btn">Llamar ahora</a>
+      </div>
+    </div>
+    <div class="location__map reveal">
+      <a class="location__map-fallback" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">
+        <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24"><use href="#i-pin"/></svg>
+        Abrir mapa a 6040 N Black Canyon Hwy
+      </a>
+      <iframe title="Mapa de Hugo's Alignment, Tires &amp; Auto Repair en 6040 N Black Canyon Hwy, Phoenix, AZ 85017"
+        src="https://www.google.com/maps?q=6040+N+Black+Canyon+Hwy,+Phoenix,+AZ+85017&amp;z=15&amp;hl=es&amp;output=embed"
+        width="600" height="480" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SERVICE INQUIRY ============================== -->
+<section class="section section--alt request" id="request" aria-labelledby="request-title">
+  <div class="container request__layout">
+    <header class="request__head reveal">
+      <p class="eyebrow">Solicitar servicio</p>
+      <h2 class="section-title" id="request-title">¿Qué necesita<br><span class="hl">tu vehículo?</span></h2>
+      <p>Envía algunos datos y Hugo's se comunicará contigo. ¿Lo necesitas antes? Llamar es la forma más rápida de contactar al taller.</p>
+      <a class="btn btn--line" href="{{TEL}}" data-cta="call-request">Llamar {{PHONE}}</a>
+    </header>
+
+    <form class="request-form" data-request-form novalidate>
+      <noscript><p class="form-status form-status--error">Las solicitudes en línea necesitan JavaScript. Por favor llama al <a href="{{TEL}}">{{PHONE}}</a>.</p></noscript>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-name">Nombre <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Teléfono <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9()+\-.\s]{10,}">
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-email">Correo electrónico <span class="optional">(opcional)</span></label>
+        <input id="f-email" name="email" type="email" autocomplete="email">
+      </div>
+      <fieldset class="field-row field-row--3">
+        <legend>Vehículo</legend>
+        <div class="field">
+          <label for="f-year">Año</label>
+          <input id="f-year" name="vehicle_year" type="text" inputmode="numeric" maxlength="4" pattern="(19|20)[0-9]{2}" placeholder="ej. 2014">
+        </div>
+        <div class="field">
+          <label for="f-make">Marca</label>
+          <input id="f-make" name="vehicle_make" type="text" placeholder="ej. Toyota">
+        </div>
+        <div class="field">
+          <label for="f-model">Modelo</label>
+          <input id="f-model" name="vehicle_model" type="text" placeholder="ej. Camry">
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="f-service">Servicio que necesitas <span class="req" aria-hidden="true">*</span></label>
+        <select id="f-service" name="service" required>
+          <option value="">Elige uno</option>
+          <option value="Tires">Llantas</option>
+          <option value="Alignment">Alineación</option>
+          <option value="Custom wheels &amp; tires">Rines y llantas personalizados</option>
+          <option value="Lift / leveling / drop kit">Lift kit / leveling kit / drop kit</option>
+          <option value="Suspension or steering">Suspensión o dirección</option>
+          <option value="Brakes &amp; rotors">Frenos y rotores</option>
+          <option value="Oil change &amp; maintenance">Cambio de aceite y mantenimiento</option>
+          <option value="Engine repair &amp; diagnostics">Reparación de motor y diagnósticos</option>
+          <option value="Transmission">Transmisión</option>
+          <option value="Electrical">Eléctrico</option>
+          <option value="A/C">A/A (aire acondicionado)</option>
+          <option value="Welding &amp; fabrication">Soldadura y fabricación</option>
+          <option value="Financing question">Pregunta sobre financiamiento</option>
+          <option value="Not Sure">No estoy seguro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-message">Mensaje</label>
+        <textarea id="f-message" name="message" rows="4" placeholder="¿Qué estás notando? ¿Cuándo empezó?"></textarea>
+      </div>
+      <input type="hidden" name="language" value="Spanish">
+      
+      <div class="hp" aria-hidden="true">
+        <label for="f-company">Empresa</label>
+        <input id="f-company" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <p class="form-note"><span class="req" aria-hidden="true">*</span> Obligatorio. Consulta nuestra <a href="{{ROOT}}es/privacidad/">Política de privacidad</a>.</p>
+      <button class="btn btn--primary btn--lg btn--block" type="submit">Solicitar servicio</button>
+      <div class="form-status" role="status" aria-live="polite" data-form-status hidden></div>
+    </form>
+  </div>
+</section>
+
+{{include:final-cta.html}}

@@ -18,6 +18,12 @@ Plain HTML, CSS and JavaScript. It needs no framework and has no runtime depende
 | `/privacy/`, `/terms/` | Legal starting points |
 | `/404.html` | Not-found page |
 
+**Spanish (español):** every page has a Spanish version with an **EN/ES switch** in the header:
+`/es/`, `/es/llantas/`, `/es/alineacion/`, `/es/reparacion-automotriz/`, `/es/reparacion-de-transmision/`,
+`/es/privacidad/`, `/es/terminos/`. Each pair is linked with `hreflang` tags and sitemap alternates so
+Google shows Spanish speakers the Spanish page. Form messages, open/closed status and other script text are
+translated too. Form submissions include a `language` field, so the shop knows which language to reply in.
+
 Every phone button dials `tel:+16022420442`. Every directions button opens Google Maps with the
 full address (Apple Maps on iPhone, iPad and Mac). A persistent **Call Now | Directions** bar sits at
 the bottom of the screen on phones.
@@ -59,6 +65,16 @@ Everything visual is taken from the shop's logo:
 
 The colour tokens live at the top of `assets/css/styles.css`. The illustration accent is `YELLOW` in `tools/generate_art.py`.
 
+## Content sources
+
+Everything factual comes from the owner's own material:
+- **Yelp listing + "Specialties"**: 10+ years in business, the owner's statement (used as the quote in "The shop")
+- **Owner's Spanish flyer**: full service list, values ("Trabajo de calidad · Precios honestos · Manteniendo tu camino"),
+  the Spanish tagline "Tu taller de confianza para todo tu vehículo", and financing through Snap Finance, Koalafi and EasyPay Finance
+- **Owner's Yelp photo posts**: the five work photos and their captions
+
+Financing providers are named in text only (no third-party logos). Confirm they're still current before launch.
+
 ## Editing content
 
 - **Owner settings (no build needed):** `assets/js/site-config.js`. This file holds the form endpoint, hero video, reviews and the reviews link.
@@ -68,6 +84,12 @@ The colour tokens live at the top of `assets/css/styles.css`. The illustration a
 ```bash
 python3 tools/build.py      # writes index.html, tires/index.html, … sitemap.xml, robots.txt
 ```
+
+**Spanish pages:** the Spanish home page is generated from the English one:
+`python3 tools/make_es_home.py` applies the string pairs in `tools/translations_home_es.py`.
+If you change English text on the home page, add or adjust the matching pair. The script stops and lists any
+English string it can't find, so nothing slips through untranslated. Other Spanish pages live in `src/pages/es/`,
+and the Spanish header, footer and CTA blocks are in `src/partials/es/`.
 
 Name, address, phone and hours are defined once in `BUSINESS` in `tools/build.py` and injected everywhere,
 including the `AutoRepair` structured data.
@@ -107,6 +129,7 @@ the caliper doesn't rotate with the wheel, and lug nuts show the star tightening
 
 ```bash
 npm install
+python3 tools/make_es_home.py   # after editing the English home page
 npm run build
 npm run serve        # http://localhost:8080
 npm test             # in a second terminal

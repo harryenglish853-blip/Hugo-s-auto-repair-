@@ -7,7 +7,9 @@ import AxeBuilder from '@axe-core/playwright';
 
 const BASE = (process.env.BASE_URL || 'http://localhost:8080').replace(/\/$/, '');
 const TEL = 'tel:+16022420442';
-const PAGES = ['/', '/tires/', '/wheel-alignment/', '/auto-repair/', '/transmission-repair/', '/privacy/', '/terms/'];
+const PAGES_EN = ['/', '/tires/', '/wheel-alignment/', '/auto-repair/', '/transmission-repair/', '/privacy/', '/terms/'];
+const PAGES_ES = ['/es/', '/es/llantas/', '/es/alineacion/', '/es/reparacion-automotriz/', '/es/reparacion-de-transmision/', '/es/privacidad/', '/es/terminos/'];
+const PAGES = [...PAGES_EN, ...PAGES_ES];
 const VIEWPORTS = {
   desktop: { viewport: { width: 1440, height: 900 } },
   tablet: devices['iPad (gen 7)'],
@@ -187,6 +189,42 @@ for (const [status, expectSuccess] of [[200, true], [500, false]]) {
   ok(posted && posted.includes('Test Driver'), `endpoint ${status}: form data posted`);
   ok(expectSuccess ? txt.includes("Thanks. Hugo's received your request.") : !txt.includes('received your request'),
     `endpoint ${status}: ${expectSuccess ? 'success shown' : 'success NOT shown'}`);
+  await ctx.close();
+}
+
+// ---------------------------------------------------------------- Spanish
+console.log('\n=== español ===');
+{
+  const ctx = await browser.newContext({ ...devices['Pixel 7'] });
+  const page = await ctx.newPage();
+  for (let i = 0; i < PAGES_EN.length; i++) {
+    await page.goto(BASE + PAGES_EN[i]);
+    ok(await page.getAttribute('html', 'lang') === 'en', `${PAGES_EN[i]}: lang="en"`);
+    await page.click('[data-lang-switch]');
+    await page.waitForLoadState('load');
+    ok(new URL(page.url()).pathname === PAGES_ES[i], `${PAGES_EN[i]} → switch → ${PAGES_ES[i]}`);
+    ok(await page.getAttribute('html', 'lang') === 'es', `${PAGES_ES[i]}: lang="es"`);
+    const hre = await page.$$eval('link[rel=alternate][hreflang]', ls => ls.map(l => l.hreflang).sort().join(','));
+    ok(hre === 'en,es,x-default', `${PAGES_ES[i]}: hreflang alternates`);
+    await page.click('[data-lang-switch]');
+    await page.waitForLoadState('load');
+    ok(new URL(page.url()).pathname === PAGES_EN[i], `${PAGES_ES[i]} → switch → ${PAGES_EN[i]}`);
+  }
+  await page.goto(BASE + '/es/');
+  await page.click('.problem[data-problem="Ruido extraño"]');
+  ok((await page.textContent('[data-problem-answer]')).includes('Vamos a revisarlo.'), 'es: "Vamos a revisarlo."');
+  await page.click('[data-problem-request]');
+  ok((await page.inputValue('#f-message')).includes('Lo que estoy notando: Ruido extraño'), 'es: symptom pre-fills message in Spanish');
+  await page.fill('#f-message', '');
+  await page.selectOption('#f-service', '');
+  await page.click('.request-form button[type="submit"]');
+  ok((await page.textContent('#f-name-error')) === 'Por favor escribe tu nombre.', 'es: validation messages in Spanish');
+  await page.fill('#f-name', 'Prueba');
+  await page.fill('#f-phone', '602-555-0100');
+  await page.selectOption('#f-service', 'Tires');
+  await page.click('.request-form button[type="submit"]');
+  const st = await page.textContent('[data-form-status]');
+  ok(st.includes('no se envió') && !st.includes('recibió'), 'es: no endpoint → honest "no se envió" message');
   await ctx.close();
 }
 

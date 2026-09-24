@@ -61,9 +61,12 @@ Every later change to `main` redeploys automatically. "Site checks" runs the ful
 
 ### Logo
 
-The logo in `assets/img/logo-*.png` was cut out of the owner's artwork (`src/logo-source.png`, 576px), which holds up at
-header and hero sizes. If the owner has the original high-res file, replace `src/logo-source.png` and re-export
-`logo-200.png`, `logo-400.png` and `logo-576.png` at those widths.
+The site uses the owner's current logo, "HUGO'S · Alignment, Tires & Auto Repair", which matches the business name
+on the site, the Yelp listing and the flyer. It was cut out of the owner's flyer (`src/logo-source.png`, 438px),
+which holds up at header and hero sizes. The older "Alignment and Tire Shop LLC" version is kept for reference in
+`src/logo-source-llc-version.png` (it also still appears inside one of the owner's own photo posts in the gallery).
+If the owner has the original high-res logo file, replace `src/logo-source.png` and re-export
+`logo-200.png`, `logo-400.png` and `logo-full.png`, plus the icons `favicon-48.png`, `apple-touch-icon.png` and `icon-512.png`.
 
 ## Brand
 
@@ -75,7 +78,7 @@ Everything visual is taken from the shop's logo:
 | Chrome | `#F6F7F9 → #9C9EA4 → #74777E` gradient | shield, pistons, car |
 | Black | `#0A0A0E` + perforated-metal texture (pure CSS) | the logo's background plate |
 | Headings | **Saira ExtraBold Italic** (self-hosted) | heavy slanted "HUGO'S" lettering |
-| Labels & body | **Arimo** Regular/Bold (self-hosted, Arial-metric) | "ALIGNMENT AND TIRE SHOP LLC" line |
+| Labels & body | **Arimo** Regular/Bold (self-hosted, Arial-metric) | the logo's small uppercase lettering |
 
 The colour tokens live at the top of `assets/css/styles.css`. The illustration accent is `YELLOW` in `tools/generate_art.py`.
 

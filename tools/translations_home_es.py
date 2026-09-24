@@ -7,7 +7,7 @@ PAIRS = [
   '"title": "Hugo\'s Alignment, Tires & Auto Repair | Taller en Phoenix, AZ", "description": "Tu taller de confianza en Phoenix: llantas, alineaciones, mecánica y transmisiones. Financiamiento disponible. Llama al (602) 242-0442."'),
  # --- hero
  ("<!-- Real shop footage is injected here by main.js when HUGOS_CONFIG.heroVideo is set. -->", ""),
- ('alt="Hugo\'s Alignment and Tire Shop logo"', 'alt="Logo de Hugo\'s Alignment and Tire Shop"'),
+ ('alt="Hugo\'s Alignment, Tires &amp; Auto Repair logo"', 'alt="Logo de Hugo\'s Alignment, Tires &amp; Auto Repair"'),
  ("Phoenix, Arizona · Mon–Sat {{OPEN_S}}–{{CLOSE_S}}", "Phoenix, Arizona · Lun–Sáb {{OPEN_S}}–{{CLOSE_S}}"),
  ('<span class="hero__headline">Keep Phoenix <br><span class="hl">moving straight.</span></span>',
   '<span class="hero__headline">Tu taller de confianza <br><span class="hl">para todo tu vehículo.</span></span>'),

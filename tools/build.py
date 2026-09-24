@@ -139,7 +139,7 @@ def business_schema(lang="en"):
         "url": f"{SITE_URL}/",
         "telephone": b["phone_e164"],
         "image": f"{SITE_URL}/assets/img/og-image.png",
-        "logo": f"{SITE_URL}/assets/img/logo-576.png",
+        "logo": f"{SITE_URL}/assets/img/logo-full.png",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": b["street"],

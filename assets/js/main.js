@@ -342,6 +342,12 @@
     });
   }
 
+  /* ---------- smooth scrolling for in-page links (not when arriving from another page) ---------- */
+  if (!reduceMotion.matches) {
+    var enableSmooth = function () { setTimeout(function () { document.documentElement.classList.add('smooth-scroll'); }, 50); };
+    if (document.readyState === 'complete') enableSmooth(); else window.addEventListener('load', enableSmooth);
+  }
+
   /* ---------- small things ---------- */
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 

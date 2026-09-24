@@ -150,7 +150,12 @@ npm install
 npm run build
 npm run serve        # serves dist/ at http://localhost:8080
 npm test             # in a second terminal
+npm run test:clicks  # clicks every link and button on every page (EN/ES, desktop/iPhone/Android)
 ```
+
+`tests/audit-clicks.mjs` clicks every link and button on every page and checks where each one lands (including in-page
+sections), that every phone button dials (602) 242-0442 and every directions button carries the full address.
+CI runs both suites twice: at the root and at the GitHub Pages path `/Hugo-s-auto-repair-/`.
 
 `tests/check-site.mjs` loads every page on desktop, iPad, iPhone and Android viewports and checks:
 

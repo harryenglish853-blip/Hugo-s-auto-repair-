@@ -109,11 +109,11 @@ console.log('\n=== internal links ===');
       const key = u.pathname;
       if (!seen.has(key)) {
         seen.add(key);
-        const r = await ctx.request.get(BASE + key);
+        const r = await ctx.request.get(u.origin + key);
         ok(r.status() === 200, `${key} → ${r.status()}`);
       }
       if (u.hash && u.hash.length > 1) {
-        const target = await ctx.request.get(BASE + u.pathname).then(r => r.text());
+        const target = await ctx.request.get(u.origin + u.pathname).then(r => r.text());
         ok(target.includes(`id="${u.hash.slice(1)}"`), `${key}${u.hash} anchor exists`);
       }
     }
@@ -212,13 +212,13 @@ console.log('\n=== español ===');
     ok(await page.getAttribute('html', 'lang') === 'en', `${PAGES_EN[i]}: lang="en"`);
     await page.click('[data-lang-switch]');
     await page.waitForLoadState('load');
-    ok(new URL(page.url()).pathname === PAGES_ES[i], `${PAGES_EN[i]} → switch → ${PAGES_ES[i]}`);
+    ok(new URL(page.url()).pathname === new URL(BASE + PAGES_ES[i]).pathname, `${PAGES_EN[i]} → switch → ${PAGES_ES[i]}`);
     ok(await page.getAttribute('html', 'lang') === 'es', `${PAGES_ES[i]}: lang="es"`);
     const hre = await page.$$eval('link[rel=alternate][hreflang]', ls => ls.map(l => l.hreflang).sort().join(','));
     ok(hre === 'en,es,x-default', `${PAGES_ES[i]}: hreflang alternates`);
     await page.click('[data-lang-switch]');
     await page.waitForLoadState('load');
-    ok(new URL(page.url()).pathname === PAGES_EN[i], `${PAGES_ES[i]} → switch → ${PAGES_EN[i]}`);
+    ok(new URL(page.url()).pathname === new URL(BASE + PAGES_EN[i]).pathname, `${PAGES_ES[i]} → switch → ${PAGES_EN[i]}`);
   }
   await ctx.close();
 }

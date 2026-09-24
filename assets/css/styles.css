@@ -50,7 +50,7 @@
 
 /* ---------- base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); background: var(--ink); }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 12px); background: var(--ink); }
 body {
   margin: 0;
   background: var(--perf-holes), var(--graphite);
@@ -71,6 +71,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 800; font-style: ita
 address { font-style: normal; }
 button, input, select, textarea { font: inherit; color: inherit; }
 main:focus { outline: none; }
+/* smooth scrolling for in-page links only (turned on after load, so arriving at /#section jumps straight there) */
+html.smooth-scroll { scroll-behavior: smooth; }
 [hidden] { display: none !important; }
 
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }

@@ -32,3 +32,13 @@ jobs:
           npx http-server dist -p 8080 -s &
           for i in $(seq 1 30); do curl -sf http://localhost:8080/ >/dev/null && break; sleep 1; done
           npm test
+          npm run test:clicks
+      - name: Test again at the GitHub Pages path (/Hugo-s-auto-repair-/)
+        env:
+          BASE_URL: http://localhost:8081/Hugo-s-auto-repair-
+        run: |
+          mkdir -p pages-mirror && ln -s ../dist pages-mirror/Hugo-s-auto-repair-
+          npx http-server pages-mirror -p 8081 -s &
+          for i in $(seq 1 30); do curl -sf $BASE_URL/ >/dev/null && break; sleep 1; done
+          npm test
+          npm run test:clicks

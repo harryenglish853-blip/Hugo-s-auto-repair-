@@ -3,9 +3,9 @@
   "private": true,
   "description": "Website for Hugo's Alignment, Tires & Auto Repair, Phoenix, AZ",
   "scripts": {
-    "build": "python3 tools/build.py",
+    "build": "python3 tools/make_es_home.py && python3 tools/build.py",
     "art": "python3 tools/generate_art.py",
-    "serve": "http-server . -p 8080 -c-1",
+    "serve": "http-server dist -p 8080 -c-1",
     "test": "node tests/check-site.mjs"
   },
   "devDependencies": {

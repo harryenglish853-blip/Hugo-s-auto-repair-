@@ -17,8 +17,8 @@
       stars: ' out of 5 stars',
       via: 'via',
       locale: 'en-US',
-      open: 'Open now · until 6:00 PM today',
-      closed: 'Closed now · opens 8:00 AM ',
+      open: 'Open now · until {close} today',
+      closed: 'Closed now · opens {open} ',
       today: 'today', tomorrow: 'tomorrow', monday: 'Monday',
       err: {
         name: 'Please enter your name.',
@@ -28,7 +28,6 @@
         service: 'Please choose the service you need (or "Not Sure").',
         other: 'Please check this field.'
       },
-      notConnected: "<strong>Online requests aren't connected yet.</strong> Your request was not sent. Please call Hugo's at ",
       sending: 'Sending…',
       subject: 'Service request: ',
       success: "<strong>Thanks. Hugo's received your request.</strong> The shop will follow up soon. Need help sooner? Call ",
@@ -39,8 +38,8 @@
       stars: ' de 5 estrellas',
       via: 'en',
       locale: 'es-US',
-      open: 'Abierto ahora · hasta las 6:00 PM',
-      closed: 'Cerrado ahora · abre a las 8:00 AM ',
+      open: 'Abierto ahora · hasta las {close}',
+      closed: 'Cerrado ahora · abre a las {open} ',
       today: 'hoy', tomorrow: 'mañana', monday: 'el lunes',
       err: {
         name: 'Por favor escribe tu nombre.',
@@ -50,7 +49,6 @@
         service: 'Elige el servicio que necesitas (o "No estoy seguro").',
         other: 'Por favor revisa este campo.'
       },
-      notConnected: '<strong>Las solicitudes en línea aún no están conectadas.</strong> Tu solicitud no se envió. Por favor llama a Hugo\'s al ',
       sending: 'Enviando…',
       subject: 'Solicitud de servicio: ',
       success: '<strong>Gracias. Hugo\'s recibió tu solicitud.</strong> El taller se comunicará contigo pronto. ¿Lo necesitas antes? Llama al ',
@@ -237,20 +235,36 @@
       var get = function (t) { return (parts.find(function (p) { return p.type === t; }) || {}).value; };
       var day = get('weekday');
       var mins = (Number(get('hour')) % 24) * 60 + Number(get('minute'));
+      // hours come from the page (set once in tools/build.py)
+      var toMins = function (hhmm) { var p = String(hhmm).split(':'); return Number(p[0]) * 60 + Number(p[1] || 0); };
+      var opens = toMins(statusEl.getAttribute('data-open') || '08:00');
+      var closes = toMins(statusEl.getAttribute('data-close') || '18:00');
+      var fill = function (str) {
+        return str.replace('{open}', statusEl.getAttribute('data-open-label') || '')
+                  .replace('{close}', statusEl.getAttribute('data-close-label') || '');
+      };
       var isWorkday = day !== 'Sun';
-      var open = isWorkday && mins >= 8 * 60 && mins < 18 * 60;
+      var open = isWorkday && mins >= opens && mins < closes;
       if (open) {
-        statusEl.textContent = T.open;
+        statusEl.textContent = fill(T.open);
         statusEl.classList.add('is-open');
       } else {
-        var next = (isWorkday && mins < 8 * 60) ? T.today : (day === 'Sat' || day === 'Sun' ? T.monday : T.tomorrow);
-        statusEl.textContent = T.closed + next;
+        var next = (isWorkday && mins < opens) ? T.today : (day === 'Sat' || day === 'Sun' ? T.monday : T.tomorrow);
+        statusEl.textContent = fill(T.closed) + next;
       }
     } catch (e) { /* leave blank */ }
   }
 
   /* ---------- service request form ---------- */
   var form = $('[data-request-form]');
+  var offline = $('[data-request-offline]');
+  if (form && !(CONFIG.formEndpoint || '').trim()) {
+    // Form not connected yet: show the call / visit panel instead of a form that can't send.
+    form.hidden = true;
+    if (offline) offline.hidden = false;
+    $$('[data-problem-request]').forEach(function (a) { a.hidden = true; });
+    form = null;
+  }
   if (form) {
     var statusBox = $('[data-form-status]', form);
     var submit = $('button[type="submit"]', form);
@@ -301,11 +315,7 @@
       // bots fill the hidden field; quietly drop the submission
       if ($('#f-company').value) return;
 
-      var endpoint = (CONFIG.formEndpoint || '').trim();
-      if (!endpoint) {
-        showStatus('error', '<p>' + T.notConnected + '<a href="' + TEL + '">' + PHONE + '</a>.</p>');
-        return;
-      }
+      var endpoint = CONFIG.formEndpoint.trim();
 
       submit.disabled = true;
       var label = submit.textContent;

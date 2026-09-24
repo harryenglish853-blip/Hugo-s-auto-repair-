@@ -22,6 +22,20 @@ const ok = (cond, msg) => { if (cond) console.log('  ✓', msg); else { failures
 
 const browser = await chromium.launch();
 
+// Pretend a form endpoint is configured (the live config ships without one until the shop sets it up).
+const withEndpoint = async (ctx, status = 200) => {
+  await ctx.addInitScript(() => {
+    Object.defineProperty(window, 'HUGOS_CONFIG', {
+      configurable: true,
+      set(v) { v.formEndpoint = 'https://forms.test/submit'; Object.defineProperty(window, 'HUGOS_CONFIG', { value: v, writable: true }); },
+      get() { return undefined; },
+    });
+  });
+  const seen = { body: null };
+  await ctx.route('https://forms.test/submit', r => { seen.body = r.request().postData(); r.fulfill({ status, body: '{}' }); });
+  return seen;
+};
+
 // ---------------------------------------------------------------- per page / per device
 for (const [name, opts] of Object.entries(VIEWPORTS)) {
   console.log(`\n=== ${name} ===`);
@@ -116,6 +130,7 @@ console.log('\n=== internal links ===');
 console.log('\n=== interactions (iPhone) ===');
 {
   const ctx = await browser.newContext({ ...devices['iPhone 13'] });
+  await withEndpoint(ctx);
   const page = await ctx.newPage();
   await page.goto(BASE + '/');
 
@@ -153,31 +168,26 @@ console.log('\n=== interactions (iPhone) ===');
   ok(['name', 'phone', 'service'].every(n => invalid.includes(n)), `empty submit flags required fields ${JSON.stringify(invalid)}`);
   ok(await page.isHidden('[data-form-status]'), 'no status message on invalid submit');
 
-  const fill = async () => {
-    await page.fill('#f-name', 'Test Driver');
-    await page.fill('#f-phone', '(602) 555-0100');
-    await page.fill('#f-year', '2014');
-    await page.selectOption('#f-service', 'Alignment');
-  };
-  // form: no endpoint configured → must NOT claim success
-  await fill();
-  await page.click('.request-form button[type="submit"]');
-  const noEndpoint = await page.textContent('[data-form-status]');
-  ok(!noEndpoint.includes('received your request') && noEndpoint.includes('not sent'), 'no endpoint → honest "not sent" message');
+  await ctx.close();
+}
+
+// form not connected (the default until the shop sets an endpoint): call/visit panel instead of the form
+for (const [path, title] of [['/', 'Call or stop by'], ['/es/', 'Llama o visítanos']]) {
+  const ctx = await browser.newContext({ ...devices['iPhone 13'] });
+  const page = await ctx.newPage();
+  await page.goto(BASE + path);
+  ok(await page.isHidden('[data-request-form]'), `${path} no endpoint: form hidden`);
+  ok(await page.isVisible('[data-request-offline]'), `${path} no endpoint: call/visit panel shown`);
+  ok((await page.textContent('.request-offline__title')).trim() === title, `${path} no endpoint: panel title "${title}"`);
+  ok(await page.$eval('[data-request-offline] a[href^="tel:"]', a => a.getAttribute('href')) === TEL, `${path} no endpoint: panel calls shop`);
+  await page.click('.problem >> nth=0');
+  ok(await page.isHidden('[data-problem-request]'), `${path} no endpoint: "send a request" link hidden`);
   await ctx.close();
 }
 
 for (const [status, expectSuccess] of [[200, true], [500, false]]) {
   const ctx = await browser.newContext({ ...devices['Pixel 7'] });
-  await ctx.addInitScript(() => {
-    Object.defineProperty(window, 'HUGOS_CONFIG', {
-      configurable: true,
-      set(v) { v.formEndpoint = 'https://forms.test/submit'; Object.defineProperty(window, 'HUGOS_CONFIG', { value: v, writable: true }); },
-      get() { return undefined; },
-    });
-  });
-  let posted = null;
-  await ctx.route('https://forms.test/submit', r => { posted = r.request().postData(); r.fulfill({ status, body: '{}' }); });
+  const seen = await withEndpoint(ctx, status);
   const page = await ctx.newPage();
   await page.goto(BASE + '/#request');
   await page.fill('#f-name', 'Test Driver');
@@ -186,7 +196,7 @@ for (const [status, expectSuccess] of [[200, true], [500, false]]) {
   await page.click('.request-form button[type="submit"]');
   await page.waitForSelector('[data-form-status]:not([hidden])');
   const txt = await page.textContent('[data-form-status]');
-  ok(posted && posted.includes('Test Driver'), `endpoint ${status}: form data posted`);
+  ok(seen.body && seen.body.includes('Test Driver'), `endpoint ${status}: form data posted`);
   ok(expectSuccess ? txt.includes("Thanks. Hugo's received your request.") : !txt.includes('received your request'),
     `endpoint ${status}: ${expectSuccess ? 'success shown' : 'success NOT shown'}`);
   await ctx.close();
@@ -210,6 +220,12 @@ console.log('\n=== español ===');
     await page.waitForLoadState('load');
     ok(new URL(page.url()).pathname === PAGES_EN[i], `${PAGES_ES[i]} → switch → ${PAGES_EN[i]}`);
   }
+  await ctx.close();
+}
+{
+  const ctx = await browser.newContext({ ...devices['Pixel 7'] });
+  await withEndpoint(ctx);
+  const page = await ctx.newPage();
   await page.goto(BASE + '/es/');
   await page.click('.problem[data-problem="Ruido extraño"]');
   ok((await page.textContent('[data-problem-answer]')).includes('Vamos a revisarlo.'), 'es: "Vamos a revisarlo."');
@@ -223,8 +239,9 @@ console.log('\n=== español ===');
   await page.fill('#f-phone', '602-555-0100');
   await page.selectOption('#f-service', 'Tires');
   await page.click('.request-form button[type="submit"]');
+  await page.waitForSelector('[data-form-status]:not([hidden])');
   const st = await page.textContent('[data-form-status]');
-  ok(st.includes('no se envió') && !st.includes('recibió'), 'es: no endpoint → honest "no se envió" message');
+  ok(st.includes("Gracias. Hugo's recibió tu solicitud."), 'es: success message in Spanish');
   await ctx.close();
 }
 

@@ -3,8 +3,8 @@
 A fast, mobile-first static website for **Hugo's Alignment, Tires & Auto Repair**,
 6040 N Black Canyon Hwy, Phoenix, AZ 85017 · (602) 242-0442 · Mon–Sat 8:00 AM–6:00 PM.
 
-Plain HTML, CSS and JavaScript. It needs no framework and has no runtime dependencies, so it works on any static host
-(Netlify, Cloudflare Pages, GitHub Pages, Vercel, S3, or ordinary shared hosting).
+Plain HTML, CSS and JavaScript with no framework and no runtime dependencies. It's hosted on **GitHub Pages**
+(see *Going live*), and the built `dist/` folder works on any static host.
 
 ## Pages
 
@@ -28,28 +28,42 @@ Every phone button dials `tel:+16022420442`. Every directions button opens Googl
 full address (Apple Maps on iPhone, iPad and Mac). A persistent **Call Now | Directions** bar sits at
 the bottom of the screen on phones.
 
-## Before launch: checklist
+## Going live (GitHub Pages)
 
-1. **Set the domain.** In `tools/build.py` set `SITE_URL` (currently `https://www.example.com`), then run
-   `python3 tools/build.py`. This updates canonical URLs, Open Graph tags, structured data, `sitemap.xml`
-   and `robots.txt`.
-2. **Connect the service request form.** In `assets/js/site-config.js` set `formEndpoint` to a form
-   service URL (e.g. [Formspree](https://formspree.io), Basin, Getform, or your own endpoint). Until this is
-   set, the form **does not** claim success. It tells the visitor the request wasn't sent and asks them to call.
-   The success message "Thanks. Hugo's received your request." appears only after the endpoint returns a 2xx response.
-3. **Confirm the hours.** The site uses **Mon–Sat 8:00 AM–6:00 PM**, as provided. Some public listings (e.g. Yelp)
-   show 7:00 PM. Make sure every listing matches.
-4. **Confirm the business name on listings.** Yelp lists the shop as "Hugo's Alignment & Tire Shop". For local SEO,
-   keep the name, address and phone identical everywhere (Google Business Profile, Yelp, Facebook, Apple Maps).
-5. **More photos and video.** Four real photos of the shop's work (from the owner's Yelp posts) are in the gallery and service pages. Add more, plus a hero video if the owner has one (see below).
-6. **Add genuine reviews** (see below), or leave the section as-is: it links out to Yelp.
-7. **Logo file.** The logo in `assets/img/logo-*.png` was cut out of a phone screenshot of the owner's
-   artwork (`src/logo-source.png`, 576px). It holds up at header and hero sizes. If the owner has the original
-   high-res file (PNG with transparency, SVG, or the designer's source), replace `src/logo-source.png` and re-export
-   `logo-200.png`, `logo-400.png` and `logo-576.png` at those widths. The logo reads "Hugo's Alignment and Tire Shop LLC".
-   The site keeps "Hugo's Alignment, Tires & Auto Repair" as the business name, as requested. Pick one name to use on every listing.
-8. Have the owner review `/privacy/` and `/terms/` (ideally with an attorney).
-9. After launch, submit `sitemap.xml` in Google Search Console and link the site from the Google Business Profile.
+The site is built by `tools/build.py` into `dist/` and published by `.github/workflows/deploy.yml`
+every time `main` changes. Only `dist/` is published, never the source files.
+
+**One-time setup (about 2 minutes):**
+1. Merge this branch into `main`.
+2. In the GitHub repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. Open the **Actions** tab. "Deploy site" runs automatically (or click **Run workflow**). When it finishes, the site is live at
+   **https://harryenglish853-blip.github.io/Hugo-s-auto-repair-/**
+
+Every later change to `main` redeploys automatically. "Site checks" runs the full test suite on every push and pull request.
+
+### Settings you can change later (each is one edit, then commit to `main`)
+
+| What | Where | Notes |
+| --- | --- | --- |
+| **Hours** | `OPENS` / `CLOSES` in `tools/build.py` (24-hour clock, e.g. `"19:00"`) | Updates every page in both languages, the open/closed badge and Google's structured data. The site currently says **8:00 AM – 6:00 PM**. Yelp says 7:00 PM, so confirm with the shop. |
+| **Request form** | `formEndpoint` in `assets/js/site-config.js` | Until it's set, visitors see a "Call or stop by" panel instead of the form. Paste a form service URL (e.g. a free [Formspree](https://formspree.io) form that emails the shop) and the form appears. It only says "received" after a successful send. |
+| **Domain** | `CUSTOM_DOMAIN` in `tools/build.py` (e.g. `"www.hugosautophx.com"`) | The build writes the `CNAME` file and updates canonical URLs, sitemap and social previews. At the domain registrar, add a `CNAME` record for `www` → `harryenglish853-blip.github.io`. Then in Settings → Pages, enter the domain and tick **Enforce HTTPS**. |
+
+## Before or after launch: checklist
+
+1. **Confirm the business name on listings.** Yelp lists "Hugo's Alignment & Tire Shop"; the flyer and site use
+   "Hugo's Alignment, Tires & Auto Repair". Keep name, address and phone identical everywhere (Google Business Profile, Yelp, Facebook, Apple Maps).
+2. **Confirm financing providers** (Snap Finance, Koalafi, EasyPay Finance) are still current.
+3. **Have a native speaker skim the Spanish pages.**
+4. **Owner review of `/privacy/` and `/terms/`** (ideally with an attorney).
+5. **After launch:** add the site to Google Search Console, submit `sitemap.xml`, and put the website link on the Google Business Profile, Yelp and Facebook.
+6. **Nice to have:** the original high-res logo file (see *Logo* below), more photos (shop front, alignment rack, the team) and genuine reviews.
+
+### Logo
+
+The logo in `assets/img/logo-*.png` was cut out of the owner's artwork (`src/logo-source.png`, 576px), which holds up at
+header and hero sizes. If the owner has the original high-res file, replace `src/logo-source.png` and re-export
+`logo-200.png`, `logo-400.png` and `logo-576.png` at those widths.
 
 ## Brand
 
@@ -77,12 +91,12 @@ Financing providers are named in text only (no third-party logos). Confirm they'
 
 ## Editing content
 
-- **Owner settings (no build needed):** `assets/js/site-config.js`. This file holds the form endpoint, hero video, reviews and the reviews link.
+- **Owner settings:** `assets/js/site-config.js`. This file holds the form endpoint, hero video, reviews and the reviews link.
 - **Page text:** `src/pages/*.html`. **Shared header/footer/CTAs:** `src/partials/`.
   After editing anything in `src/`, run:
 
 ```bash
-python3 tools/build.py      # writes index.html, tires/index.html, … sitemap.xml, robots.txt
+npm run build      # regenerates the Spanish home page, then writes everything into dist/
 ```
 
 **Spanish pages:** the Spanish home page is generated from the English one:
@@ -91,7 +105,7 @@ If you change English text on the home page, add or adjust the matching pair. Th
 English string it can't find, so nothing slips through untranslated. Other Spanish pages live in `src/pages/es/`,
 and the Spanish header, footer and CTA blocks are in `src/partials/es/`.
 
-Name, address, phone and hours are defined once in `BUSINESS` in `tools/build.py` and injected everywhere,
+Name, address, phone and hours are defined once in `tools/build.py` and injected everywhere,
 including the `AutoRepair` structured data.
 
 ### Adding real shop photos
@@ -129,9 +143,8 @@ the caliper doesn't rotate with the wheel, and lug nuts show the star tightening
 
 ```bash
 npm install
-python3 tools/make_es_home.py   # after editing the English home page
 npm run build
-npm run serve        # http://localhost:8080
+npm run serve        # serves dist/ at http://localhost:8080
 npm test             # in a second terminal
 ```
 
@@ -142,7 +155,8 @@ npm test             # in a second terminal
 - one `<h1>` per page, touch targets ≥ 44px, and the mobile action bar
 - axe-core WCAG 2.1 A/AA
 - mobile menu, symptom picker, alignment toggle, reduced-motion behaviour
-- form validation, the honest "not sent" state with no endpoint, a success message on a 2xx response only, and an error on a 5xx response
+- both languages: the EN/ES switch on every page, `hreflang` tags, and Spanish form messages
+- the "Call or stop by" panel while no form endpoint is set; with an endpoint set: validation, a success message on a 2xx response only, and an error on a 5xx response
 
 Lighthouse (local, uncompressed server): Performance 95–100, Accessibility 100, Best Practices 100, SEO 100
 on mobile and desktop. Production hosts that serve gzip/brotli will do slightly better.

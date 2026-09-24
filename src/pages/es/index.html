@@ -9,7 +9,7 @@
   <div class="container hero__content">
     <img class="hero__logo" src="{{ROOT}}assets/img/logo-400.png" srcset="{{ROOT}}assets/img/logo-200.png 200w, {{ROOT}}assets/img/logo-400.png 400w, {{ROOT}}assets/img/logo-576.png 576w"
       sizes="(min-width: 1240px) 210px, (min-width: 777px) 17vw, 132px" width="400" height="393" alt="Logo de Hugo's Alignment and Tire Shop" fetchpriority="high">
-    <p class="eyebrow hero__eyebrow"><span class="dot" aria-hidden="true"></span> Phoenix, Arizona · Lun–Sáb 8AM–6PM</p>
+    <p class="eyebrow hero__eyebrow"><span class="dot" aria-hidden="true"></span> Phoenix, Arizona · Lun–Sáb {{OPEN_S}}–{{CLOSE_S}}</p>
     <h1 class="hero__title" id="hero-title">
       <span class="hero__brand">Hugo's Alignment, Tires &amp; Auto Repair</span>
       <span class="hero__headline">Tu taller de confianza <br><span class="hl">para todo tu vehículo.</span></span>
@@ -36,7 +36,7 @@
     <li class="trust__item reveal"><strong>10+ años</strong><span>En el negocio</span></li>
     <li class="trust__item reveal"><strong>Phoenix, AZ</strong><span>6040 N Black Canyon Hwy</span></li>
     <li class="trust__item reveal"><strong>Llantas • Alineación</strong><span>y mecánica</span></li>
-    <li class="trust__item reveal"><strong>Lun–Sáb</strong><span>8:00 AM – 6:00 PM</span></li>
+    <li class="trust__item reveal"><strong>Lun–Sáb</strong><span>{{OPEN}} – {{CLOSE}}</span></li>
   </ul>
 </section>
 
@@ -316,10 +316,10 @@
         </a>
         <p class="location__line">
           <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-clock"/></svg>
-          <span>Lunes a sábado<br>8:00 AM – 6:00 PM</span>
+          <span>Lunes a sábado<br>{{OPEN}} – {{CLOSE}}</span>
         </p>
       </address>
-      <p class="location__open" data-open-status aria-live="polite"></p>
+      <p class="location__open" data-open-status data-open="{{OPEN_24}}" data-close="{{CLOSE_24}}" data-open-label="{{OPEN}}" data-close-label="{{CLOSE}}" aria-live="polite"></p>
       <div class="location__ctas">
         <a class="btn btn--primary btn--lg" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Cómo llegar</a>
         <a class="btn btn--ghost btn--lg" href="{{TEL}}" data-cta="call-location-btn">Llamar ahora</a>
@@ -343,9 +343,23 @@
     <header class="request__head reveal">
       <p class="eyebrow">Solicitar servicio</p>
       <h2 class="section-title" id="request-title">¿Qué necesita<br><span class="hl">tu vehículo?</span></h2>
-      <p>Envía algunos datos y Hugo's se comunicará contigo. ¿Lo necesitas antes? Llamar es la forma más rápida de contactar al taller.</p>
+      <p>Cuéntale a Hugo's qué necesita tu vehículo. Llamar es la forma más rápida de contactar al taller.</p>
       <a class="btn btn--line" href="{{TEL}}" data-cta="call-request">Llamar {{PHONE}}</a>
     </header>
+
+    
+    <div class="request-offline" data-request-offline hidden>
+      <h3 class="request-offline__title">Llama o visítanos</h3>
+      <p>Muy pronto podrás pedir servicio en línea. Por ahora, la forma más rápida de que revisen tu vehículo es llamar al taller o venir en horario de servicio.</p>
+      <div class="request-offline__ctas">
+        <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-request-offline">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+          Llamar {{PHONE}}
+        </a>
+        <a class="btn btn--ghost btn--lg" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+      <p class="request-offline__hours">Lunes a sábado · {{OPEN}} – {{CLOSE}} · 6040 N Black Canyon Hwy, Phoenix</p>
+    </div>
 
     <form class="request-form" data-request-form novalidate>
       <noscript><p class="form-status form-status--error">Las solicitudes en línea necesitan JavaScript. Por favor llama al <a href="{{TEL}}">{{PHONE}}</a>.</p></noscript>

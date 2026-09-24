@@ -71,6 +71,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 800; font-style: ita
 address { font-style: normal; }
 button, input, select, textarea { font: inherit; color: inherit; }
 main:focus { outline: none; }
+[hidden] { display: none !important; }
 
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
@@ -633,3 +634,16 @@ a.location__line:hover span { text-decoration: underline; }
   .hero__eyebrow { display: none; }
 }
 :lang(es) .hero__headline { font-size: clamp(2.1rem, 7.2vw, 5.4rem); }
+
+/* ---------- request: offline panel (until the form is connected) ---------- */
+.request-offline { display: grid; gap: 14px; align-content: start; padding: clamp(22px, 4vw, 36px); border-radius: var(--radius);
+  background: linear-gradient(#0f1014, #0f1014) padding-box, var(--chrome) border-box; border: 1.5px solid transparent; }
+.request-offline[hidden] { display: none; }
+.request-offline__title { font-size: clamp(1.6rem, 3.6vw, 2.3rem); margin: 0; }
+.request-offline p { margin: 0; color: var(--muted); }
+.request-offline__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 519px) { .request-offline__ctas .btn { width: 100%; } }
+.request-offline .request-offline__hours { font: 700 .8125rem/1.4 var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--steel-lt); }
+
+.site-footer__social { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 8px; font-weight: 700; color: var(--accent); text-decoration: none; }
+.site-footer__social:hover { text-decoration: underline; color: var(--accent-hover); }

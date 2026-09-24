@@ -1,0 +1,34 @@
+# Runs the site checks (links, phone/directions buttons, both languages, forms, accessibility).
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Build
+        run: |
+          python3 tools/make_es_home.py
+          python3 tools/build.py
+      - name: Check the Spanish home page is in sync with the English one
+        run: git diff --exit-code src/pages/es/index.html
+      - name: Serve and test
+        run: |
+          npx http-server dist -p 8080 -s &
+          for i in $(seq 1 30); do curl -sf http://localhost:8080/ >/dev/null && break; sleep 1; done
+          npm test

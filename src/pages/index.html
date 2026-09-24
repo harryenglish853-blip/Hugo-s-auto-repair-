@@ -9,7 +9,7 @@
   <div class="container hero__content">
     <img class="hero__logo" src="{{ROOT}}assets/img/logo-400.png" srcset="{{ROOT}}assets/img/logo-200.png 200w, {{ROOT}}assets/img/logo-400.png 400w, {{ROOT}}assets/img/logo-576.png 576w"
       sizes="(min-width: 1240px) 210px, (min-width: 777px) 17vw, 132px" width="400" height="393" alt="Hugo's Alignment and Tire Shop logo" fetchpriority="high">
-    <p class="eyebrow hero__eyebrow"><span class="dot" aria-hidden="true"></span> Phoenix, Arizona · Mon–Sat 8AM–6PM</p>
+    <p class="eyebrow hero__eyebrow"><span class="dot" aria-hidden="true"></span> Phoenix, Arizona · Mon–Sat {{OPEN_S}}–{{CLOSE_S}}</p>
     <h1 class="hero__title" id="hero-title">
       <span class="hero__brand">Hugo's Alignment, Tires &amp; Auto Repair</span>
       <span class="hero__headline">Keep Phoenix <br><span class="hl">moving straight.</span></span>
@@ -36,7 +36,7 @@
     <li class="trust__item reveal"><strong>10+ Years</strong><span>In business</span></li>
     <li class="trust__item reveal"><strong>Phoenix, AZ</strong><span>6040 N Black Canyon Hwy</span></li>
     <li class="trust__item reveal"><strong>Tires • Alignment</strong><span>&amp; auto repair</span></li>
-    <li class="trust__item reveal"><strong>Mon–Sat</strong><span>8:00 AM – 6:00 PM</span></li>
+    <li class="trust__item reveal"><strong>Mon–Sat</strong><span>{{OPEN}} – {{CLOSE}}</span></li>
   </ul>
 </section>
 
@@ -323,10 +323,10 @@
         </a>
         <p class="location__line">
           <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><use href="#i-clock"/></svg>
-          <span>Monday – Saturday<br>8:00 AM – 6:00 PM</span>
+          <span>Monday – Saturday<br>{{OPEN}} – {{CLOSE}}</span>
         </p>
       </address>
-      <p class="location__open" data-open-status aria-live="polite"></p>
+      <p class="location__open" data-open-status data-open="{{OPEN_24}}" data-close="{{CLOSE_24}}" data-open-label="{{OPEN}}" data-close-label="{{CLOSE}}" aria-live="polite"></p>
       <div class="location__ctas">
         <a class="btn btn--primary btn--lg" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Get Directions</a>
         <a class="btn btn--ghost btn--lg" href="{{TEL}}" data-cta="call-location-btn">Call Now</a>
@@ -350,9 +350,23 @@
     <header class="request__head reveal">
       <p class="eyebrow">Request service</p>
       <h2 class="section-title" id="request-title">What does your<br><span class="hl">vehicle need?</span></h2>
-      <p>Send a few details and Hugo's will follow up. Need help sooner? Calling is the fastest way to reach the shop.</p>
+      <p>Tell Hugo's what your vehicle needs. Calling is the fastest way to reach the shop.</p>
       <a class="btn btn--line" href="{{TEL}}" data-cta="call-request">Call {{PHONE}}</a>
     </header>
+
+    <!-- Shown instead of the form until HUGOS_CONFIG.formEndpoint is set in assets/js/site-config.js -->
+    <div class="request-offline" data-request-offline hidden>
+      <h3 class="request-offline__title">Call or stop by</h3>
+      <p>Online service requests are coming soon. For now, the fastest way to get your vehicle looked at is to call the shop or come by during business hours.</p>
+      <div class="request-offline__ctas">
+        <a class="btn btn--primary btn--lg" href="{{TEL}}" data-cta="call-request-offline">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+          Call {{PHONE}}
+        </a>
+        <a class="btn btn--ghost btn--lg" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Get Directions</a>
+      </div>
+      <p class="request-offline__hours">Monday – Saturday · {{OPEN}} – {{CLOSE}} · 6040 N Black Canyon Hwy, Phoenix</p>
+    </div>
 
     <form class="request-form" data-request-form novalidate>
       <noscript><p class="form-status form-status--error">Online requests need JavaScript. Please call <a href="{{TEL}}">{{PHONE}}</a>.</p></noscript>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the static site from src/ into the repository root.
+"""Build the static site from src/ into dist/ (the folder that gets published).
 
     python3 tools/build.py
 
@@ -8,21 +8,31 @@
 
 Business details (name, address, phone, hours) live in BUSINESS below and are
 injected everywhere so NAP stays identical on every page and in structured data.
-Set SITE_URL to the production domain before launch, then rebuild.
+To change the address, hours, or domain, edit the CONFIGURE block below and rebuild.
 """
 import hashlib
 import json
+import os
+import shutil
 import re
 from datetime import date
 from pathlib import Path
 from urllib.parse import quote_plus
 
 # ---------------------------------------------------------------------------
-# CONFIGURE BEFORE LAUNCH
-SITE_URL = "https://www.example.com"  # production domain, no trailing slash
+# CONFIGURE
+# Custom domain, e.g. "www.hugosautophx.com". Leave "" to use the GitHub Pages address.
+# When set, the build also writes the CNAME file GitHub Pages needs.
+CUSTOM_DOMAIN = ""
+GITHUB_PAGES_URL = "https://harryenglish853-blip.github.io/Hugo-s-auto-repair-"
+SITE_URL = os.environ.get("SITE_URL") or (f"https://{CUSTOM_DOMAIN}" if CUSTOM_DOMAIN else GITHUB_PAGES_URL)
+
+# Opening hours (24-hour clock). Used in page text, the open/closed badge and Google's structured data.
+OPENS, CLOSES = "08:00", "18:00"
 # ---------------------------------------------------------------------------
 
 ROOT = Path(__file__).resolve().parent.parent
+DIST = ROOT / "dist"
 SRC = ROOT / "src"
 PARTIALS = SRC / "partials"
 PAGES = SRC / "pages"
@@ -36,7 +46,7 @@ BUSINESS = {
     "phone_display": "(602) 242-0442",
     "phone_e164": "+16022420442",
     "hours": {"days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-              "opens": "08:00", "closes": "18:00"},
+              "opens": OPENS, "closes": CLOSES},
     "same_as": [
         "https://www.yelp.com/biz/hugo-s-alignment-and-tire-shop-phoenix-5",
         "https://www.facebook.com/100090052066585/",
@@ -45,6 +55,16 @@ BUSINESS = {
                  "Lift, Leveling & Drop Kits", "Suspension", "Brakes & Rotors", "Oil Changes & Maintenance",
                  "Engine Repair & Diagnostics", "Electrical Repair", "A/C Repair", "Steering", "Welding & Fabrication"],
 }
+
+def clock(hhmm, short=False):
+    """'18:00' -> '6:00 PM' (or '6PM' when short)."""
+    h, m = map(int, hhmm.split(":"))
+    suffix = "AM" if h < 12 else "PM"
+    h12 = h % 12 or 12
+    if short:
+        return f"{h12}{'' if m == 0 else f':{m:02d}'}{suffix}"
+    return f"{h12}:{m:02d} {suffix}"
+
 
 FULL_ADDRESS = f"{BUSINESS['street']}, {BUSINESS['city']}, {BUSINESS['region']} {BUSINESS['zip']}"
 DIRECTIONS = "https://www.google.com/maps/dir/?api=1&destination=" + quote_plus(FULL_ADDRESS)
@@ -171,13 +191,14 @@ def page_schema(meta):
 
 def out_path(path):
     if path.endswith(".html"):
-        return ROOT / path.lstrip("/")
-    return ROOT / path.strip("/") / "index.html" if path != "/" else ROOT / "index.html"
+        return DIST / path.lstrip("/")
+    return DIST / path.strip("/") / "index.html" if path != "/" else DIST / "index.html"
 
 
 def root_prefix(meta):
     if meta.get("absolute_root"):
-        return "/"
+        # e.g. the 404 page, which can be served from any URL depth
+        return SITE_URL + "/"
     depth = len([p for p in meta["path"].split("/") if p and not p.endswith(".html")])
     return "../" * depth if depth else "./"
 
@@ -244,6 +265,12 @@ def render(page_file, meta, body, version):
         "{{LANG}}": lang,
         "{{OG_LOCALE}}": "es_US" if lang == "es" else "en_US",
         "{{HREFLANG}}": hreflang_links(meta),
+        "{{OPEN}}": clock(OPENS),
+        "{{CLOSE}}": clock(CLOSES),
+        "{{OPEN_S}}": clock(OPENS, short=True),
+        "{{CLOSE_S}}": clock(CLOSES, short=True),
+        "{{OPEN_24}}": OPENS,
+        "{{CLOSE_24}}": CLOSES,
         "{{ALT_HREF}}": rel(meta["path"], meta.get("alt") or ("/" if lang == "es" else "/es/"), meta),
     }
     for k, v in replacements.items():
@@ -277,14 +304,26 @@ def write_sitemap(metas):
             f"  <url><loc>{SITE_URL}{m['path']}</loc>{alts}<lastmod>{today}</lastmod>"
             f"<changefreq>{m.get('changefreq', 'monthly')}</changefreq><priority>{m.get('priority', '0.5')}</priority></url>"
         )
-    (ROOT / "sitemap.xml").write_text(
+    (DIST / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(urls) + "\n</urlset>\n"
     )
-    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+    (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+
+
+def prepare_dist():
+    if DIST.exists():
+        shutil.rmtree(DIST)
+    DIST.mkdir()
+    shutil.copytree(ROOT / "assets", DIST / "assets")
+    shutil.copy2(ROOT / "site.webmanifest", DIST / "site.webmanifest")
+    (DIST / ".nojekyll").write_text("")  # serve files as-is on GitHub Pages
+    if CUSTOM_DOMAIN:
+        (DIST / "CNAME").write_text(CUSTOM_DOMAIN + "\n")
 
 
 def main():
+    prepare_dist()
     version = asset_version()
     pages = [(p, *read_page(p, "en")) for p in sorted(PAGES.glob("*.html"))]
     pages += [(p, *read_page(p, "es")) for p in sorted((PAGES / "es").glob("*.html"))]
@@ -294,7 +333,7 @@ def main():
             raise SystemExit(f"{p}: alt page {m['alt']} does not exist")
     metas = [render(p, m, body, version) for p, m, body in pages]
     write_sitemap(metas)
-    print(f"built {len(metas)} pages (assets v{version})")
+    print(f"built {len(metas)} pages into dist/ for {SITE_URL} (assets v{version})")
 
 
 if __name__ == "__main__":

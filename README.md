@@ -51,8 +51,8 @@ Every later change to `main` redeploys automatically. "Site checks" runs the ful
 
 ## Before or after launch: checklist
 
-1. **Confirm the business name on listings.** Yelp lists "Hugo's Alignment & Tire Shop"; the flyer and site use
-   "Hugo's Alignment, Tires & Auto Repair". Keep name, address and phone identical everywhere (Google Business Profile, Yelp, Facebook, Apple Maps).
+1. **Keep the business listings consistent.** The Yelp listing, the flyer and the site all use "Hugo's Alignment, Tires & Auto Repair".
+   Make sure Google Business Profile, Facebook and Apple Maps use the same name, address and phone.
 2. **Confirm financing providers** (Snap Finance, Koalafi, EasyPay Finance) are still current.
 3. **Have a native speaker skim the Spanish pages.**
 4. **Owner review of `/privacy/` and `/terms/`** (ideally with an attorney).
@@ -82,7 +82,8 @@ The colour tokens live at the top of `assets/css/styles.css`. The illustration a
 ## Content sources
 
 Everything factual comes from the owner's own material:
-- **Yelp listing + "Specialties"**: 10+ years in business, the owner's statement (used as the quote in "The shop")
+- **Yelp listing + "Specialties"**: 10+ years in business and the owner's statement (the quote in "The shop", the footer line
+  on every page, and the business description in the structured data)
 - **Owner's Spanish flyer**: full service list, values ("Trabajo de calidad · Precios honestos · Manteniendo tu camino"),
   the Spanish tagline "Tu taller de confianza para todo tu vehículo", and financing through Snap Finance, Koalafi and EasyPay Finance
 - **Owner's Yelp photo posts**: the five work photos and their captions

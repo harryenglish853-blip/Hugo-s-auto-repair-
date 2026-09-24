@@ -647,3 +647,4 @@ a.location__line:hover span { text-decoration: underline; }
 
 .site-footer__social { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 8px; font-weight: 700; color: var(--accent); text-decoration: none; }
 .site-footer__social:hover { text-decoration: underline; color: var(--accent-hover); }
+.site-footer__about { margin: 20px 0 0; max-width: 38ch; color: var(--muted); }

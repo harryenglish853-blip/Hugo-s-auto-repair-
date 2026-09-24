@@ -119,13 +119,23 @@ def ld(obj):
     return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + "</script>"
 
 
-def business_schema():
+DESCRIPTION = {
+    "en": ("In business 10+ years. Our goal is to provide quality service for our clients' vehicles so everyone stays safe. "
+           "We specialize in automotive services and give every client professional, customized service."),
+    "es": ("Más de 10 años en el negocio. Nuestra meta es brindar servicios de calidad para los vehículos de nuestros clientes "
+           "para que todos estén seguros. Nos especializamos en servicios automotrices y damos un servicio profesional y "
+           "personalizado a cada cliente."),
+}
+
+
+def business_schema(lang="en"):
     b = BUSINESS
     return {
         "@context": "https://schema.org",
         "@type": "AutoRepair",
         "@id": f"{SITE_URL}/#business",
         "name": b["name"],
+        "description": DESCRIPTION[lang],
         "url": f"{SITE_URL}/",
         "telephone": b["phone_e164"],
         "image": f"{SITE_URL}/assets/img/og-image.png",
@@ -163,7 +173,7 @@ def page_schema(meta):
     url = SITE_URL + meta["path"]
     es = meta.get("lang") == "es"
     if "business" in kinds:
-        blocks.append(business_schema())
+        blocks.append(business_schema(meta.get("lang", "en")))
     if "website" in kinds:
         blocks.append({"@context": "https://schema.org", "@type": "WebSite", "name": BUSINESS["name"],
                        "url": f"{SITE_URL}/"})

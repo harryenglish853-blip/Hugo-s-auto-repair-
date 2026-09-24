@@ -1,0 +1,38 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="container site-header__inner">
+    <!-- Text wordmark. Replace with the shop's official logo file when available
+         (keep the alt text as the business name). -->
+    <a class="wordmark" href="{{ROOT}}" aria-label="Hugo's Alignment, Tires &amp; Auto Repair — home">
+      <span class="wordmark__name">Hugo's</span>
+      <span class="wordmark__sub">Alignment, Tires &amp; Auto Repair</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="{{ROOT}}#services"{{NAV_services}}>Services</a></li>
+        <li><a href="{{ROOT}}wheel-alignment/"{{NAV_alignment}}>Alignment</a></li>
+        <li><a href="{{ROOT}}tires/"{{NAV_tires}}>Tires</a></li>
+        <li><a href="{{ROOT}}auto-repair/"{{NAV_repair}}>Auto Repair</a></li>
+        <li><a href="{{ROOT}}transmission-repair/"{{NAV_transmission}}>Transmission</a></li>
+        <li><a href="{{ROOT}}#reviews">Reviews</a></li>
+        <li><a href="{{ROOT}}#contact">Contact</a></li>
+      </ul>
+      <div class="site-nav__mobile-cta">
+        <a class="btn btn--primary btn--block" href="{{TEL}}" data-cta="call-menu">Call {{PHONE}}</a>
+        <a class="btn btn--ghost btn--block" href="{{DIRECTIONS}}" data-directions target="_blank" rel="noopener">Get Directions</a>
+        <p class="site-nav__hours">Mon–Sat · 8:00 AM–6:00 PM</p>
+      </div>
+    </nav>
+
+    <a class="btn btn--primary btn--sm site-header__call" href="{{TEL}}" data-cta="call-header">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><use href="#i-phone"/></svg>
+      <span>{{PHONE}}</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+      <span class="menu-toggle__bars" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+  </div>
+</header>

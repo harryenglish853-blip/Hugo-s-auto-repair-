@@ -1,0 +1,163 @@
+<svg class="hero__scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+<style>
+.hs-wheel-move{animation:hs-roll 2.8s cubic-bezier(.16,.84,.3,1) both}
+.hs-wheel-spin{animation:hs-spin 2.8s cubic-bezier(.16,.84,.3,1) both}
+.hs-clamp{opacity:0;animation:hs-clamp .7s ease-out 2.9s forwards}
+.hs-laser{opacity:0;animation:hs-sweep 5s ease-in-out 3.6s infinite}
+.hs-sensor-led{animation:hs-led 2.4s ease-in-out 3.6s infinite}
+@keyframes hs-roll{from{transform:translateX(620px)}to{transform:none}}
+@keyframes hs-spin{from{transform:rotate(360deg)}to{transform:rotate(0)}}
+@keyframes hs-clamp{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+@keyframes hs-sweep{0%{opacity:0;transform:translateX(0)}15%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translateX(620px)}}
+@keyframes hs-led{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion: reduce){.hs-wheel-move,.hs-wheel-spin{animation:none}.hs-clamp{animation:none;opacity:1}.hs-laser{animation:none;opacity:.7}.hs-sensor-led{animation:none}}
+</style>
+<defs>
+  <radialGradient id="hw-side" r="0.5"><stop offset="0.62" stop-color="#16171a"/><stop offset="0.9" stop-color="#1e2023"/><stop offset="1" stop-color="#141517"/></radialGradient><linearGradient id="hw-lip" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe3e7"/><stop offset="0.5" stop-color="#6b7178"/><stop offset="1" stop-color="#b9bfc5"/></linearGradient><linearGradient id="hw-spoke" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c5cad0"/><stop offset="1" stop-color="#5d636a"/></linearGradient><radialGradient id="hw-hub"><stop offset="0" stop-color="#7f868e"/><stop offset="1" stop-color="#3b3f44"/></radialGradient>
+  <linearGradient id="hs-bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#16181b"/><stop offset="0.62" stop-color="#0f1012"/><stop offset="1" stop-color="#08090a"/>
+  </linearGradient>
+  <linearGradient id="hs-floor" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1a1c1f"/><stop offset="1" stop-color="#0b0c0d"/>
+  </linearGradient>
+  <linearGradient id="hs-light" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f4efe6" stop-opacity=".9"/><stop offset="1" stop-color="#f4efe6" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="hs-pool" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#f4efe6" stop-opacity=".10"/><stop offset="1" stop-color="#f4efe6" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="hs-laser" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#f0a431" stop-opacity="0"/><stop offset=".5" stop-color="#f0a431" stop-opacity=".9"/>
+    <stop offset="1" stop-color="#f0a431" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="hs-shade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#0d0e10" stop-opacity=".96"/><stop offset=".48" stop-color="#0d0e10" stop-opacity=".7"/>
+    <stop offset="1" stop-color="#0d0e10" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#hs-bg)"/>
+<!-- rear wall: roll-up bay door slats -->
+<g opacity=".55">
+  <rect x="520" y="120" width="560" height="470" fill="#131518" stroke="#23262a" stroke-width="3"/>
+  <line x1="522" y1="140" x2="1078" y2="140" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="162" x2="1078" y2="162" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="184" x2="1078" y2="184" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="206" x2="1078" y2="206" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="228" x2="1078" y2="228" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="250" x2="1078" y2="250" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="272" x2="1078" y2="272" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="294" x2="1078" y2="294" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="316" x2="1078" y2="316" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="338" x2="1078" y2="338" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="360" x2="1078" y2="360" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="382" x2="1078" y2="382" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="404" x2="1078" y2="404" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="426" x2="1078" y2="426" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="448" x2="1078" y2="448" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="470" x2="1078" y2="470" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="492" x2="1078" y2="492" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="514" x2="1078" y2="514" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="536" x2="1078" y2="536" stroke="#1d2024" stroke-width="2"/><line x1="522" y1="558" x2="1078" y2="558" stroke="#1d2024" stroke-width="2"/>
+</g>
+<!-- overhead shop lights -->
+<g class="hs-lights">
+  <rect x="340" y="40" width="300" height="10" rx="3" fill="#e9e4da"/>
+  <rect x="960" y="40" width="300" height="10" rx="3" fill="#e9e4da"/>
+  <path d="M340 50 L640 50 L760 420 L220 420 Z" fill="url(#hs-light)" opacity=".07"/>
+  <path d="M960 50 L1260 50 L1380 420 L840 420 Z" fill="url(#hs-light)" opacity=".07"/>
+</g>
+<!-- floor -->
+<rect y="585" width="1600" height="315" fill="url(#hs-floor)"/>
+<line x1="0" y1="585" x2="1600" y2="585" stroke="#2a2d31" stroke-width="2"/>
+<ellipse cx="1000" cy="700" rx="700" ry="120" fill="url(#hs-pool)"/>
+<!-- alignment rack runway + turn plate -->
+<path d="M180 640 L1600 800 L1600 836 L180 652 Z" fill="#202327" stroke="#33373c" stroke-width="1.5"/>
+<path d="M180 652 L1600 836 L1600 852 L180 658 Z" fill="#141619"/>
+<ellipse cx="1180" cy="866" rx="210" ry="22" fill="#2a2e33" stroke="#4a4f55" stroke-width="2"/>
+<ellipse cx="1180" cy="866" rx="150" ry="14" fill="none" stroke="#3a3e43" stroke-width="1.5"/>
+<!-- measurement laser sweeping the floor -->
+<rect class="hs-laser" x="200" y="864" width="520" height="2" fill="url(#hs-laser)"/>
+<!-- wheel reflection -->
+<g transform="translate(1180 1130) scale(1 -0.18)" opacity=".18">
+  <circle r="262" fill="#2a2d31"/>
+</g>
+<!-- the wheel: rolls in, stops -->
+<g class="hs-wheel-move">
+  <g transform="translate(1180 610)">
+    <g class="hs-wheel-spin"><circle r="262" fill="#121315"/>
+<path d="M247.89 -7.3 L263.91 -6.74 L263.91 6.74 L247.89 7.3 Z" fill="#1b1d20"/>
+<path d="M247.41 17.03 L263.3 19.16 L261.98 32.57 L245.98 31.57 Z" fill="#1b1d20"/>
+<path d="M244.55 41.2 L260.16 44.88 L257.53 58.1 L241.7 55.52 Z" fill="#1b1d20"/>
+<path d="M239.34 64.97 L254.51 70.16 L250.59 83.06 L235.1 78.95 Z" fill="#1b1d20"/>
+<path d="M231.82 88.12 L246.4 94.77 L241.25 107.22 L226.23 101.61 Z" fill="#1b1d20"/>
+<path d="M222.06 110.41 L235.93 118.47 L229.58 130.35 L215.18 123.3 Z" fill="#1b1d20"/>
+<path d="M210.17 131.65 L223.18 141.02 L215.69 152.23 L202.06 143.79 Z" fill="#1b1d20"/>
+<path d="M196.26 151.62 L208.28 162.22 L199.73 172.63 L186.99 162.91 Z" fill="#1b1d20"/>
+<path d="M180.45 170.12 L191.38 181.85 L181.85 191.38 L170.12 180.45 Z" fill="#1b1d20"/>
+<path d="M162.91 186.99 L172.63 199.73 L162.22 208.28 L151.62 196.26 Z" fill="#1b1d20"/>
+<path d="M143.79 202.06 L152.23 215.69 L141.02 223.18 L131.65 210.17 Z" fill="#1b1d20"/>
+<path d="M123.3 215.18 L130.35 229.58 L118.47 235.93 L110.41 222.06 Z" fill="#1b1d20"/>
+<path d="M101.61 226.23 L107.22 241.25 L94.77 246.4 L88.12 231.82 Z" fill="#1b1d20"/>
+<path d="M78.95 235.1 L83.06 250.59 L70.16 254.51 L64.97 239.34 Z" fill="#1b1d20"/>
+<path d="M55.52 241.7 L58.1 257.53 L44.88 260.16 L41.2 244.55 Z" fill="#1b1d20"/>
+<path d="M31.57 245.98 L32.57 261.98 L19.16 263.3 L17.03 247.41 Z" fill="#1b1d20"/>
+<path d="M7.3 247.89 L6.74 263.91 L-6.74 263.91 L-7.3 247.89 Z" fill="#1b1d20"/>
+<path d="M-17.03 247.41 L-19.16 263.3 L-32.57 261.98 L-31.57 245.98 Z" fill="#1b1d20"/>
+<path d="M-41.2 244.55 L-44.88 260.16 L-58.1 257.53 L-55.52 241.7 Z" fill="#1b1d20"/>
+<path d="M-64.97 239.34 L-70.16 254.51 L-83.06 250.59 L-78.95 235.1 Z" fill="#1b1d20"/>
+<path d="M-88.12 231.82 L-94.77 246.4 L-107.22 241.25 L-101.61 226.23 Z" fill="#1b1d20"/>
+<path d="M-110.41 222.06 L-118.47 235.93 L-130.35 229.58 L-123.3 215.18 Z" fill="#1b1d20"/>
+<path d="M-131.65 210.17 L-141.02 223.18 L-152.23 215.69 L-143.79 202.06 Z" fill="#1b1d20"/>
+<path d="M-151.62 196.26 L-162.22 208.28 L-172.63 199.73 L-162.91 186.99 Z" fill="#1b1d20"/>
+<path d="M-170.12 180.45 L-181.85 191.38 L-191.38 181.85 L-180.45 170.12 Z" fill="#1b1d20"/>
+<path d="M-186.99 162.91 L-199.73 172.63 L-208.28 162.22 L-196.26 151.62 Z" fill="#1b1d20"/>
+<path d="M-202.06 143.79 L-215.69 152.23 L-223.18 141.02 L-210.17 131.65 Z" fill="#1b1d20"/>
+<path d="M-215.18 123.3 L-229.58 130.35 L-235.93 118.47 L-222.06 110.41 Z" fill="#1b1d20"/>
+<path d="M-226.23 101.61 L-241.25 107.22 L-246.4 94.77 L-231.82 88.12 Z" fill="#1b1d20"/>
+<path d="M-235.1 78.95 L-250.59 83.06 L-254.51 70.16 L-239.34 64.97 Z" fill="#1b1d20"/>
+<path d="M-241.7 55.52 L-257.53 58.1 L-260.16 44.88 L-244.55 41.2 Z" fill="#1b1d20"/>
+<path d="M-245.98 31.57 L-261.98 32.57 L-263.3 19.16 L-247.41 17.03 Z" fill="#1b1d20"/>
+<path d="M-247.89 7.3 L-263.91 6.74 L-263.91 -6.74 L-247.89 -7.3 Z" fill="#1b1d20"/>
+<path d="M-247.41 -17.03 L-263.3 -19.16 L-261.98 -32.57 L-245.98 -31.57 Z" fill="#1b1d20"/>
+<path d="M-244.55 -41.2 L-260.16 -44.88 L-257.53 -58.1 L-241.7 -55.52 Z" fill="#1b1d20"/>
+<path d="M-239.34 -64.97 L-254.51 -70.16 L-250.59 -83.06 L-235.1 -78.95 Z" fill="#1b1d20"/>
+<path d="M-231.82 -88.12 L-246.4 -94.77 L-241.25 -107.22 L-226.23 -101.61 Z" fill="#1b1d20"/>
+<path d="M-222.06 -110.41 L-235.93 -118.47 L-229.58 -130.35 L-215.18 -123.3 Z" fill="#1b1d20"/>
+<path d="M-210.17 -131.65 L-223.18 -141.02 L-215.69 -152.23 L-202.06 -143.79 Z" fill="#1b1d20"/>
+<path d="M-196.26 -151.62 L-208.28 -162.22 L-199.73 -172.63 L-186.99 -162.91 Z" fill="#1b1d20"/>
+<path d="M-180.45 -170.12 L-191.38 -181.85 L-181.85 -191.38 L-170.12 -180.45 Z" fill="#1b1d20"/>
+<path d="M-162.91 -186.99 L-172.63 -199.73 L-162.22 -208.28 L-151.62 -196.26 Z" fill="#1b1d20"/>
+<path d="M-143.79 -202.06 L-152.23 -215.69 L-141.02 -223.18 L-131.65 -210.17 Z" fill="#1b1d20"/>
+<path d="M-123.3 -215.18 L-130.35 -229.58 L-118.47 -235.93 L-110.41 -222.06 Z" fill="#1b1d20"/>
+<path d="M-101.61 -226.23 L-107.22 -241.25 L-94.77 -246.4 L-88.12 -231.82 Z" fill="#1b1d20"/>
+<path d="M-78.95 -235.1 L-83.06 -250.59 L-70.16 -254.51 L-64.97 -239.34 Z" fill="#1b1d20"/>
+<path d="M-55.52 -241.7 L-58.1 -257.53 L-44.88 -260.16 L-41.2 -244.55 Z" fill="#1b1d20"/>
+<path d="M-31.57 -245.98 L-32.57 -261.98 L-19.16 -263.3 L-17.03 -247.41 Z" fill="#1b1d20"/>
+<path d="M-7.3 -247.89 L-6.74 -263.91 L6.74 -263.91 L7.3 -247.89 Z" fill="#1b1d20"/>
+<path d="M17.03 -247.41 L19.16 -263.3 L32.57 -261.98 L31.57 -245.98 Z" fill="#1b1d20"/>
+<path d="M41.2 -244.55 L44.88 -260.16 L58.1 -257.53 L55.52 -241.7 Z" fill="#1b1d20"/>
+<path d="M64.97 -239.34 L70.16 -254.51 L83.06 -250.59 L78.95 -235.1 Z" fill="#1b1d20"/>
+<path d="M88.12 -231.82 L94.77 -246.4 L107.22 -241.25 L101.61 -226.23 Z" fill="#1b1d20"/>
+<path d="M110.41 -222.06 L118.47 -235.93 L130.35 -229.58 L123.3 -215.18 Z" fill="#1b1d20"/>
+<path d="M131.65 -210.17 L141.02 -223.18 L152.23 -215.69 L143.79 -202.06 Z" fill="#1b1d20"/>
+<path d="M151.62 -196.26 L162.22 -208.28 L172.63 -199.73 L162.91 -186.99 Z" fill="#1b1d20"/>
+<path d="M170.12 -180.45 L181.85 -191.38 L191.38 -181.85 L180.45 -170.12 Z" fill="#1b1d20"/>
+<path d="M186.99 -162.91 L199.73 -172.63 L208.28 -162.22 L196.26 -151.62 Z" fill="#1b1d20"/>
+<path d="M202.06 -143.79 L215.69 -152.23 L223.18 -141.02 L210.17 -131.65 Z" fill="#1b1d20"/>
+<path d="M215.18 -123.3 L229.58 -130.35 L235.93 -118.47 L222.06 -110.41 Z" fill="#1b1d20"/>
+<path d="M226.23 -101.61 L241.25 -107.22 L246.4 -94.77 L231.82 -88.12 Z" fill="#1b1d20"/>
+<path d="M235.1 -78.95 L250.59 -83.06 L254.51 -70.16 L239.34 -64.97 Z" fill="#1b1d20"/>
+<path d="M241.7 -55.52 L257.53 -58.1 L260.16 -44.88 L244.55 -41.2 Z" fill="#1b1d20"/>
+<path d="M245.98 -31.57 L261.98 -32.57 L263.3 -19.16 L247.41 -17.03 Z" fill="#1b1d20"/>
+<circle r="240" fill="url(#hw-side)"/><circle r="240" fill="none" stroke="#26292d" stroke-width="2"/><circle r="211.0" fill="none" stroke="#1f2124" stroke-width="1.5"/>
+<circle r="172" fill="#0a0b0c"/><circle r="172" fill="none" stroke="url(#hw-lip)" stroke-width="9"/><circle r="160" fill="none" stroke="#2c3035" stroke-width="2"/>
+<circle r="134.16" fill="#3a3d41"/><circle r="134.16" fill="none" stroke="#4a4e53" stroke-width="3"/><circle r="79.12" fill="#2a2d31"/>
+<path d="M-9 -38.97 L-13.94 -159.39 L13.94 -159.39 L9 -38.97 Z" fill="url(#hw-spoke)" stroke="#6d747c" stroke-width="1"/>
+<path d="M34.29 -20.6 L147.28 -62.52 L155.9 -35.99 L39.85 -3.49 Z" fill="url(#hw-spoke)" stroke="#6d747c" stroke-width="1"/>
+<path d="M30.19 26.24 L104.97 120.75 L82.41 137.15 L15.63 36.82 Z" fill="url(#hw-spoke)" stroke="#6d747c" stroke-width="1"/>
+<path d="M-15.63 36.82 L-82.41 137.15 L-104.97 120.75 L-30.19 26.24 Z" fill="url(#hw-spoke)" stroke="#6d747c" stroke-width="1"/>
+<path d="M-39.85 -3.49 L-155.9 -35.99 L-147.28 -62.52 L-34.29 -20.6 Z" fill="url(#hw-spoke)" stroke="#6d747c" stroke-width="1"/>
+<circle r="58" fill="url(#hw-hub)" stroke="#6d747c" stroke-width="1.5"/>
+<circle cx="0" cy="-40" r="7.5" fill="#1c1e21" stroke="#c9ced4" stroke-width="2"/>
+<circle cx="38.04" cy="-12.36" r="7.5" fill="#1c1e21" stroke="#c9ced4" stroke-width="2"/>
+<circle cx="23.51" cy="32.36" r="7.5" fill="#1c1e21" stroke="#c9ced4" stroke-width="2"/>
+<circle cx="-23.51" cy="32.36" r="7.5" fill="#1c1e21" stroke="#c9ced4" stroke-width="2"/>
+<circle cx="-38.04" cy="-12.36" r="7.5" fill="#1c1e21" stroke="#c9ced4" stroke-width="2"/>
+<circle r="20" fill="#24272b" stroke="#5b6168" stroke-width="1.5"/></g>
+    <path d="M-136.26 -19.15 A137.6 137.6 0 0 1 -84.72 -108.43 L-63.19 -72.69 A96.32 96.32 0 0 0 -94.55 -18.38 Z" fill="#2b2e32" stroke="#777e86" stroke-width="2"/>
+    <!-- wheel clamp + alignment sensor head: attached after the wheel stops -->
+    <g class="hs-clamp">
+      <line x1="0" y1="0" x2="0" y2="-166" stroke="#c9ced4" stroke-width="7" stroke-linecap="round"/><circle cx="0" cy="-166" r="8" fill="#2b2e32" stroke="#c9ced4" stroke-width="3"/><line x1="0" y1="0" x2="143.76" y2="83" stroke="#c9ced4" stroke-width="7" stroke-linecap="round"/><circle cx="143.76" cy="83" r="8" fill="#2b2e32" stroke="#c9ced4" stroke-width="3"/><line x1="0" y1="0" x2="-143.76" y2="83" stroke="#c9ced4" stroke-width="7" stroke-linecap="round"/><circle cx="-143.76" cy="83" r="8" fill="#2b2e32" stroke="#c9ced4" stroke-width="3"/>
+      <circle r="24" fill="#2b2e32" stroke="#c9ced4" stroke-width="4"/>
+      <rect x="24" y="-16" width="276" height="16" rx="3" fill="#3b3f44" stroke="#8e969f" stroke-width="1.5"/>
+      <rect x="268" y="-54" width="92" height="74" rx="8" fill="#1f2226" stroke="#c9ced4" stroke-width="3"/>
+      <circle class="hs-sensor-led" cx="340" cy="-34" r="5" fill="#f0a431"/>
+      <rect x="290" y="-10" width="48" height="16" rx="3" fill="#0b0c0d" stroke="#555b62"/>
+    </g>
+  </g>
+</g>
+<!-- legibility shade behind headline -->
+<rect width="1600" height="900" fill="url(#hs-shade)"/>
+</svg>

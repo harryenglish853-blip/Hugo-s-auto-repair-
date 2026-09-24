@@ -90,6 +90,7 @@ Everything factual comes from the owner's own material:
 - **Owner's Spanish flyer**: full service list, values ("Trabajo de calidad · Precios honestos · Manteniendo tu camino"),
   the Spanish tagline "Tu taller de confianza para todo tu vehículo", and financing through Snap Finance, Koalafi and EasyPay Finance
 - **Owner's Yelp photo posts**: the five work photos and their captions
+- **Instagram @hugosalignment_** ("Hugo's Alignment, Tires & Auto Repair"): linked in the footer and in the structured data
 
 Financing providers are named in text only (no third-party logos). Confirm they're still current before launch.
 

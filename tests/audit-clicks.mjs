@@ -10,7 +10,7 @@ const ADDRESS_GOOGLE = 'destination=6040+N+Black+Canyon+Hwy%2C+Phoenix%2C+AZ+850
 const ADDRESS_APPLE = 'daddr=6040%20N%20Black%20Canyon%20Hwy%2C%20Phoenix%2C%20AZ%2085017';
 const PAGES = ['/', '/tires/', '/wheel-alignment/', '/auto-repair/', '/transmission-repair/', '/privacy/', '/terms/',
   '/es/', '/es/llantas/', '/es/alineacion/', '/es/reparacion-automotriz/', '/es/reparacion-de-transmision/', '/es/privacidad/', '/es/terminos/'];
-const EXTERNAL_OK = [/^https:\/\/www\.google\.com\/maps\//, /^https:\/\/maps\.apple\.com\//, /^https:\/\/www\.yelp\.com\/biz\//, /^https:\/\/www\.facebook\.com\//];
+const EXTERNAL_OK = [/^https:\/\/www\.google\.com\/maps\//, /^https:\/\/maps\.apple\.com\//, /^https:\/\/www\.yelp\.com\/biz\//, /^https:\/\/www\.facebook\.com\//, /^https:\/\/www\.instagram\.com\/hugosalignment_\/$/];
 const VIEWPORTS = { desktop: { viewport: { width: 1440, height: 900 } }, iphone: devices['iPhone 13'], android: devices['Pixel 7'] };
 
 let failures = 0, checks = 0;

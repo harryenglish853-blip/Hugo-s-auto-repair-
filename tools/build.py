@@ -50,6 +50,7 @@ BUSINESS = {
     "same_as": [
         "https://www.yelp.com/biz/hugo-s-alignment-and-tire-shop-phoenix-5",
         "https://www.facebook.com/100090052066585/",
+        "https://www.instagram.com/hugosalignment_/",
     ],
     "services": ["Tires", "Wheel Alignment", "Auto Repair", "Transmission Repair", "Custom Wheels & Tires",
                  "Lift, Leveling & Drop Kits", "Suspension", "Brakes & Rotors", "Oil Changes & Maintenance",

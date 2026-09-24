@@ -647,6 +647,7 @@ a.location__line:hover span { text-decoration: underline; }
 @media (max-width: 519px) { .request-offline__ctas .btn { width: 100%; } }
 .request-offline .request-offline__hours { font: 700 .8125rem/1.4 var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--steel-lt); }
 
-.site-footer__social { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 8px; font-weight: 700; color: var(--accent); text-decoration: none; }
-.site-footer__social:hover { text-decoration: underline; color: var(--accent-hover); }
+.site-footer__social { list-style: none; margin: 0 0 8px; padding: 0; display: flex; flex-wrap: wrap; gap: 0 20px; }
+.site-footer__social a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--accent); text-decoration: none; }
+.site-footer__social a:hover { text-decoration: underline; color: var(--accent-hover); }
 .site-footer__about { margin: 20px 0 0; max-width: 38ch; color: var(--muted); }
